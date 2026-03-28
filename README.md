@@ -8,7 +8,7 @@ This is actually an extention of a personal project I started and never finished
 
 
 
-##Schedule
+## Schedule
 I'll be honest I have no Idea if this is a viable plan at all, but I as I get a feel for the progect I will move things around to make it work better, trying to prioratize the bigger stuff in weeks 2-5 to have less of a work load at the end. Also The **Bold** words are my requirements one or two things may not be listed because they will automatically happen as I go, like using **proper css selecorts* and the *italisized* lines are opptional, either just for now, or the whole duration of the progect.
 
 1. April 01 (15%)
@@ -53,7 +53,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - Buffer Week, Catch up if I need to, if not start working on user costomized lists
         - *check box on page 2 to allow list editing*
         - *I suppose **Drag and drop** to take stuf from avialable list and put it in a custom list*
-        - **Locally Store** *this as the user's custom list*
+        - ***Locally Store*** *this as the user's custom list*
         - *Add and option on page 1 to use the list instead of the random*
             - *Takes a random selection from the users list*
         - *When there is no user the user can make a custom list, The custom list is created blank with a new user*
