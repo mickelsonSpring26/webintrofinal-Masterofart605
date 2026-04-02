@@ -1,6 +1,10 @@
 :root {
-  --navColor: red;
-  --navHover: rgb(250, 129, 129);
+  --navColor: #fcbdff;
+  --navHover: #fed3ff;
+  --navText: #38381a;
+  --navShadow:#e5b7e6;
+  --descColor: #fed6ff;
+  --mainBackground: #fee9ff;
 }
 
 body {
@@ -11,46 +15,94 @@ body {
   flex-direction: column;
 }
 /* Nav Bar Stuff */
+#logo{
+ margin: 0;
+ height: 20px;
+}
 #navBar {
   flex-grow: 1;
   background-color: var(--navColor);
+  color: var(--navText);
   max-height: 50px;
+  box-shadow: 0px 1px 4px var(--navShadow);
+  z-index: 1;
 }
-#navList{
-     display: flex;
-    list-style-type: none;
-    text-align: center;
-    li {
-      flex-grow: 1;
-    }
+#navList {
+    padding-left: 0;
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+}
+#navList a{
+  text-decoration: none;
+  color: var(--navText);
+}
+.navButton{
+    transition: 0.15s;
+    flex-grow: 1;
 }
 .navButton:hover {
+    transition: 0.15s;
   background-color: var(--navHover);
 }
 
+/* Main page Stuff */
 #mainSection {
   flex-grow: 2;
-  background-color: blue;
   display: flex;
   flex-direction: row;
 }
-
+/*side Bar*/
 #pageDescription {
   flex-grow: 1;
-  background-color: green;
+  max-width: 15vw;
+  padding: 10px;
+  background-color: var(--descColor);
+  display: flex;
+  flex-direction: column;
 }
-
+#pageDescription p {
+  flex-grow: 1;
+}
+#hideButton {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+.hideDescription {
+  width: 10px;
+}
+.hideDescription h3 {
+  display: none;
+  width: 10px;
+}
+.hideDescription p {
+  display: none;
+  width: 10px;
+}
 #pageContent {
   flex-grow: 4;
-  background-color: yellow;
+  background-color: var(--mainBackground);
 }
+
+.hide {
+  display: none;
+}
+
+/* Computer Mode */
 @media screen and (min-width: 600px) {
   #navBar {
   }
-  .navButton{
+  #navList {
+    margin: 0px;
+  }
+  .navButton {
+    padding: 16px;
     height: 100%;
   }
 }
+
+/* Phone Mode */
 @media screen and (max-width: 600px) {
   #navBar {
     max-height: 55px;
@@ -58,7 +110,7 @@ body {
   #pageDescription {
     display: none;
   }
-  #navList{
+  #navList {
     margin-top: 10px;
     padding: 0px;
     flex-wrap: wrap;
@@ -67,8 +119,8 @@ body {
       padding-bottom: 5px;
       font-size: 12px;
     }
-    #logo{
-        display: none;
+    #logo {
+      display: none;
     }
   }
 }

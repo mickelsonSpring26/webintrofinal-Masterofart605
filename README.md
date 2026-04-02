@@ -12,15 +12,16 @@ This is actually an extention of a personal project I started and never finished
 I'll be honest I have no Idea if this is a viable plan at all, but I as I get a feel for the progect I will move things around to make it work better, trying to prioratize the bigger stuff on days 2-5 to have less of a work load at the end. Also The **Bold** words are my requirements one or two things may not be listed because they will automatically happen as I go, like using **proper css selecorts* and the *italisized* lines are opptional, either just for now, or the whole duration of the progect.
 
 1. April 01 (15%)
-    - [ ] **Shared Page Layout**Set up the basic html and styling for the web pages this includes
+    - [x] **Shared Page Layout** Set up the basic html and styling for the web pages this includes
         - [x] **Nav** a nav bar to get to the other pages
-        - [ ] **A** links in the nake to make it work
-        - [ ] **img** A fun logo for the corner, but just use a placeholder for now
-        - [ ] **aside** An Aside that will what the active page is used for
-        - [ ] **Section/article** contains the content of the page, as well as breaking it up inside
+        - [x] **A** links in the nake to make it work
+        - [-] **img** A fun logo for the corner, but just use a placeholder for now
+        - [x] **aside** An Aside that will what the active page is used for
+        - [x] **Section/article** contains the content of the page, as well as breaking it up inside
     - [ ] Still Needs:
         - [ ] **figure**
-        - [ ] **list**
+        - [x] **list**
+    - [x] Some Stlying
     - [ ] Work on "reformatting old files" from next week if I'm done too fast
 2. April 04 (30%)
     - [ ] Flesh out the main page with:
