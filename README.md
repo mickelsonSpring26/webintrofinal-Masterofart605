@@ -8,8 +8,8 @@ This is actually an extention of a personal project I started and never finished
 
 
 
-## Schedule
-I'll be honest I have no Idea if this is a viable plan at all, but I as I get a feel for the progect I will move things around to make it work better, trying to prioratize the bigger stuff in weeks 2-5 to have less of a work load at the end. Also The **Bold** words are my requirements one or two things may not be listed because they will automatically happen as I go, like using **proper css selecorts* and the *italisized* lines are opptional, either just for now, or the whole duration of the progect.
+## Schedule 
+I'll be honest I have no Idea if this is a viable plan at all, but I as I get a feel for the progect I will move things around to make it work better, trying to prioratize the bigger stuff on days 2-5 to have less of a work load at the end. Also The **Bold** words are my requirements one or two things may not be listed because they will automatically happen as I go, like using **proper css selecorts* and the *italisized* lines are opptional, either just for now, or the whole duration of the progect.
 
 1. April 01 (15%)
     - [ ] **Shared Page Layout**Set up the basic html and styling for the web pages this includes
