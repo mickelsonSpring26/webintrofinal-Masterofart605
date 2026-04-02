@@ -1,0 +1,74 @@
+:root {
+  --navColor: red;
+  --navHover: rgb(250, 129, 129);
+}
+
+body {
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Nav Bar Stuff */
+#navBar {
+  flex-grow: 1;
+  background-color: var(--navColor);
+  max-height: 50px;
+}
+#navList{
+     display: flex;
+    list-style-type: none;
+    text-align: center;
+    li {
+      flex-grow: 1;
+    }
+}
+.navButton:hover {
+  background-color: var(--navHover);
+}
+
+#mainSection {
+  flex-grow: 2;
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+}
+
+#pageDescription {
+  flex-grow: 1;
+  background-color: green;
+}
+
+#pageContent {
+  flex-grow: 4;
+  background-color: yellow;
+}
+@media screen and (min-width: 600px) {
+  #navBar {
+  }
+  .navButton{
+    height: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #navBar {
+    max-height: 55px;
+  }
+  #pageDescription {
+    display: none;
+  }
+  #navList{
+    margin-top: 10px;
+    padding: 0px;
+    flex-wrap: wrap;
+    li {
+      width: 50vw;
+      padding-bottom: 5px;
+      font-size: 12px;
+    }
+    #logo{
+        display: none;
+    }
+  }
+}
