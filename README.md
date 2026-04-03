@@ -15,7 +15,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - [x] **Shared Page Layout** Set up the basic html and styling for the web pages this includes
         - [x] **Nav** a nav bar to get to the other pages
         - [x] **A** links in the nake to make it work
-        - [-] **img** A fun logo for the corner, but just use a placeholder for now
+        - [ ] **img** A fun logo for the corner, but just use a placeholder for now
         - [x] **aside** An Aside that will what the active page is used for
         - [x] **Section/article** contains the content of the page, as well as breaking it up inside
     - [ ] Still Needs:
