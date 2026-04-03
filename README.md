@@ -22,24 +22,24 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [ ] **figure**
         - [x] **list**
     - [x] Some Stlying
-    - [ ] Work on "reformatting old files" from next week if I'm done too fast
+    - [x] Work on "reformatting old files" from next week if I'm done too fast
 2. April 04 (30%)
-    - [ ] Flesh out the main page with:
-        - [ ] **form** A form that contains these inputs
-            - [ ] **text** For the User's Name or names
-            - [ ] **Number** The number of people to generate for at a time
-            - [ ] **Select** Choose if you want kits or not
-            - [ ] **Reset** Clears the inputs
-            - [ ] **Submit** Submit the inputs
-        - [ ] A place to contain the output, in for of a console to allow the user to look at past results
-        - [ ] A box with the current weapon with a portion for "use stats"
+    - [x] Flesh out the main page with:
+        - [x] **form** A form that contains these inputs
+            - [x] **text** For the User's Name or names
+            - [x] **Number** The number of people to generate for at a time
+            - [x] **Select** Choose if you want kits or not
+            - [x] **Reset** Clears the inputs
+            - [x] **Submit** Submit the inputs
+        - [x] A place to contain the output, in for of a console to allow the user to look at past results
+        - [x] A box with the current weapon with a portion for "use stats"
     - [ ] **Domain** Handle collecting the input of the form
-    - [ ] Take my old files and reformat them to work as arrays of objects
-        - [ ] Name
-        - [ ] IsKit
-        - [ ] Class
+    - [x] Take my old files and reformat them to work as arrays of objects
+        - [x] Name
+        - [x] IsKit
+        - [ ] *Class*
         - [ ] *Special*
-        - [ ] Stars
+        - [ ] *Stars*
 3. April 08 (40%)
     - [ ] Create a backend to take the files and convert them to a list the program can use
     - [ ] Use random to select an item from the list and send it to the frontend when **event Listener** activates
