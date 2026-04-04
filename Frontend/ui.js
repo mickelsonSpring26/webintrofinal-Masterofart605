@@ -1,4 +1,5 @@
 import {} from "./domain.js";
+import { GetFullList } from "./service.js";
 
 const formElement = document.getElementById("generatorForm");
 const nameElement = document.getElementById("nameInput");
@@ -7,7 +8,7 @@ const radioSectionElement = document.getElementById("radioSection")
 const radioYesElement = document.getElementById("kitsYes")
 const radioNoElement = document.getElementById("kitsNo")
 
-formElement.addEventListener("submit",(e)=>{
+formElement.addEventListener("submit",async(e)=>{
     e.preventDefault();
     let kitResponce = ""
     if (radioYesElement.checked === true){
@@ -21,4 +22,5 @@ formElement.addEventListener("submit",(e)=>{
     const fullResponce = {name:nameElement.value,number:playerNumberElement.value,kit:kitResponce}
     console.log(fullResponce)
 
+    console.log(await GetFullList());
 })
