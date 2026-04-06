@@ -10,7 +10,7 @@
   <body>
     <nav id="navBar">
       <ul id="navList">
-        <li id="logo" class="navButton"> logo here</li>
+        <li id="logo" class="navButton">logo here</li>
         <a href="main.html" class="navButton"><li>Main</li></a>
         <a href="weapon.html" class="navButton"><li>Weapon list</li></a>
         <a href="create.html" class="navButton"
@@ -21,6 +21,12 @@
     </nav>
     <main id="mainSection">
       <aside id="pageDescription">
+        <section id="signInSection"></section>
+        <!-- <form id="signInForm">
+            <label for="userName">Sign in here</label>
+                <input type="text" name="" id="userName">
+            <button type="submit" id="submitButton">Submit</button>
+        </form> -->
         <h3>Main Page</h3>
         <p>
           This is the main page! It's the most important part of the site,
@@ -30,40 +36,34 @@
       </aside>
       <section id="pageContent">
         <form id="generatorForm">
+          <label>
+            Username
+            <br />
+            <input type="text" id="nameInput" />
+          </label>
+          <label>
+            Number of Players
+            <br />
+            <input type="number" name="" id="playerInput" />
+          </label>
+          <section id="radioSection">
+            Use Kits
+            <br />
+            <label> <input type="radio" name="kits" id="kitsYes" />Yes </label>
+            <label> <input type="radio" name="kits" id="kitsNo" />No </label>
+          </section>
+          <section id="buttonSection">
             <label>
-                Username
-                <br>
-                <input type="text" id="nameInput">
+              <button type="submit">Generate</button>
             </label>
+            <br />
             <label>
-                Number of Players
-                <br>
-                <input type="number" name="" id="playerInput">
+              <button type="reset">Clear</button>
             </label>
-            <section id="radioSection">
-                Use Kits
-                <br>
-                <label>
-                    <input type="radio" name="kits" id="kitsYes">Yes
-                </label>
-                <label>
-                    <input type="radio" name="kits" id="kitsNo">No
-                </label>
-            </section>
-            <section id="buttonSection">
-                <label>
-                    <button type="submit">Generate</button>
-                </label>
-                <br>
-                <label>
-                    <button type="reset">Clear</button>
-                </label>
-            </section>
+          </section>
         </form>
-        <section id = "falseConsole">
-        </section>
-        <section id = "singleDisplay">
-        </section>
+        <section id="falseConsole"></section>
+        <section id="singleDisplay"></section>
       </section>
     </main>
   </body>

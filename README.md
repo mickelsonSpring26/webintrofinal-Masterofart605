@@ -40,7 +40,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [ ] *Class*
         - [ ] *Special*
         - [ ] *Stars*
-    - Started to work on the backend stuff
+    - ✅ Started to work on the backend stuff
 3. April 08 (40%)
     - [ ] Create a backend to take the files and convert them to a list the program can use
     - [ ] Use random to select an item from the list and send it to the frontend when **event Listener** activates
@@ -71,4 +71,5 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [ ] Aside on the left
         - [ ] Page one has a recreation of a the computer console in the center
         - [ ] Replacing the placeholder I mentioned before
+        - [ ] Font
 

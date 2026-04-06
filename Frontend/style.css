@@ -77,9 +77,27 @@ body {
   display: none;
   width: 10px;
 }
-
 .hide {
     display: none;
+}
+
+#signInForm{
+    margin: 0px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: var(--navColor);
+    border-bottom-style: solid;
+}
+#userName{
+    margin: 3px;
+    min-width: 30px;
+}
+#submitButton{
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
