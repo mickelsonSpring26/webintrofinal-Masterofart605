@@ -24,16 +24,16 @@ app.MapGet("/random", () =>
 {
     string newList = combineFilesIntoOne();
     List<Weapon> returnList = JsonSerializer.Deserialize<List<Weapon>>("[" + newList + "]");
-    return generateRandom(returnList,true);
-    }
+    return generateRandom(returnList, true);
+}
 );
 
 app.MapGet("/randomKitless", () =>
 {
     string newList = combineFilesIntoOne();
     List<Weapon> returnList = JsonSerializer.Deserialize<List<Weapon>>("[" + newList + "]");
-    return generateRandom(returnList,false);
-    }
+    return generateRandom(returnList, false);
+}
 );
 
 app.Run();
@@ -43,7 +43,8 @@ string parseInputFile(string input)
     string newList = input.Substring(1);
     newList = newList.Remove(newList.Length - 1);
     return newList;
-};
+}
+;
 
 string combineFilesIntoOne()
 {
@@ -64,16 +65,16 @@ string combineFilesIntoOne()
 Weapon generateRandom(List<Weapon> inputList, bool doKit)
 {
     Random random = new Random();
-    int randomOutput = random.Next(0,inputList.Count());
+    int randomOutput = random.Next(0, inputList.Count());
     if (doKit == false && inputList.ElementAt(randomOutput).reKit == "True")
     {
-        Weapon tryAgain = generateRandom(inputList,doKit);
+        Weapon tryAgain = generateRandom(inputList, doKit);
         return tryAgain;
     }
     else
     {
-    return inputList.ElementAt(randomOutput);
+        return inputList.ElementAt(randomOutput);
     }
 
 }
-public record Weapon(string Name, string reKit, string Sub, string Special);
+public record Weapon(string Name, string reKit, string Sub, string Special,string Class);

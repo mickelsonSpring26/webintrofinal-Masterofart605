@@ -1,4 +1,9 @@
-import { GetCurrentUser, SetCurrentUser } from "./domain.js";
+import {
+  GetCurrentUser,
+  GetHideValue,
+  SetCurrentUser,
+  ToggleSideBar,
+} from "./domain.js";
 import { GetFullList, GetRandom, GetRandomKitless } from "./service.js";
 
 const formElement = document.getElementById("generatorForm");
@@ -7,45 +12,86 @@ const playerNumberElement = document.getElementById("playerInput");
 const radioSectionElement = document.getElementById("radioSection");
 const radioYesElement = document.getElementById("kitsYes");
 const radioNoElement = document.getElementById("kitsNo");
+const consoleElement = document.getElementById("falseConsole");
+const signInSectionElement = document.getElementById("signInSection");
+const hideElement = document.getElementById("hideButton");
+const sideBarElement = document.getElementById("pageDescription");
+const mainPageDetectorElement = document.getElementById("mainPage");
 
-formElement.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  let kitResponce = "";
-  if (radioYesElement.checked === true) {
-    kitResponce = "yes";
-  } else if (radioNoElement.checked === true) {
-    kitResponce = "no";
-  } else {
-    kitResponce = "This should not be happening";
-  }
-
-  const fullResponce = {
-
-    number: playerNumberElement.value,
-    kit: kitResponce,
-  };
-
-  for (let index = 0; index < playerNumberElement.value; index++) {
-      if (fullResponce.kit === "no") {
-        displayConsleElement(await GetRandomKitless())
-          console.log("Player:",index+1, await GetRandomKitless());
+console.log(mainPageDetectorElement);
+if (mainPageDetectorElement !== null) {
+    const miniDisplayElement = document.getElementById("singleDisplay");
+  formElement.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let kitResponce = "";
+    if (radioYesElement.checked === true) {
+      kitResponce = "yes";
+    } else if (radioNoElement.checked === true) {
+      kitResponce = "no";
     } else {
-          console.log("Player:",index+1, await GetRandom());
+      kitResponce = "This should not be happening";
+    }
+
+    const fullResponce = {
+      number: playerNumberElement.value,
+      kit: kitResponce,
+    };
+    consoleElement.replaceChildren();
+    let returnedValue = "";
+    for (let index = 0; index < playerNumberElement.value; index++) {
+      if (fullResponce.kit === "no") {
+        returnedValue = await GetRandomKitless() 
+        displayConsleElement(returnedValue, index + 1);
+      } else {
+        returnedValue = await GetRandom() 
+        displayConsleElement(returnedValue, index + 1);
       }
-  }
+      if(index===0){
+          const displayImage = document.createElement("img")
+          displayImage.src = "https://placehold.co/50x50"
+        const nameBoxElement = document.createElement("h1")
+        nameBoxElement.textContent = returnedValue.name
+        const subElement = document.createElement("h3")
+        subElement.textContent = returnedValue.sub
+        const specialElement = document.createElement("h3")
+        specialElement.textContent = returnedValue.special
+        const classElement = document.createElement("h3")
+        classElement.textContent = returnedValue.class
+        miniDisplayElement.replaceChildren();
+        miniDisplayElement.appendChild(displayImage)
+        miniDisplayElement.appendChild(nameBoxElement)
+        miniDisplayElement.appendChild(subElement)
+        miniDisplayElement.appendChild(specialElement)
+        miniDisplayElement.appendChild(classElement)
+    }
+    }
+
+  });
+}
+
+hideElement.addEventListener("click", () => {
+  ToggleSideBar();
+  console.log(GetHideValue());
+  userToQueryString();
+  renderLogin();
 });
 
 const userToQueryString = () => {
   const user = GetCurrentUser();
   localStorage.setItem("name", user);
+  const hideBar = GetHideValue();
+  localStorage.setItem("hide", hideBar);
 };
 const logInFromQueryString = () => {
   const currentUser = localStorage.getItem("name") ?? "";
   SetCurrentUser(currentUser);
+  const shouldHide = localStorage.getItem("hide") ?? "";
+  if (shouldHide === "yes") {
+    ToggleSideBar();
+  }
 };
 
 const renderLoginForm = () => {
-  const signInSectionElement = document.getElementById("signInSection");
   const signInFormElement = document.createElement("form");
   signInFormElement.id = "signInForm";
   const userLabelElement = document.createElement("label");
@@ -109,14 +155,31 @@ const renderLogin = () => {
   } else {
     renderLoginComplete();
   }
+  const titleElement = document.getElementById("title");
+  const descriptionElement = document.getElementById("description");
+  const growElement = document.getElementById("grow");
+  if (GetHideValue() === "yes") {
+    signInSectionElement.classList.add("hide");
+    titleElement.classList.add("hide");
+    descriptionElement.classList.add("hide");
+    growElement.classList.remove("hide");
+    sideBarElement.classList.add("small");
+    hideElement.textContent = ">";
+  } else {
+    signInSectionElement.classList.remove("hide");
+    titleElement.classList.remove("hide");
+    descriptionElement.classList.remove("hide");
+    growElement.classList.add("hide");
+    sideBarElement.classList.remove("small");
+    hideElement.textContent = "<";
+  }
 };
 
-const displayConsleElement = (input) =>{
-    const consoleElement = document.getElementById("falseConsole")
-    const nameElement = document.createElement("p")
-    nameElement.textContent=input.name;
-    consoleElement.appendChild(nameElement);
-}
+const displayConsleElement = (input, number) => {
+  const nameElement = document.createElement("p");
+  nameElement.textContent = "Player " + number + ": " + input.name;
+  consoleElement.appendChild(nameElement);
+};
 
 logInFromQueryString();
 renderLogin();
