@@ -20,26 +20,29 @@ formElement.addEventListener("submit", async (e) => {
   }
 
   const fullResponce = {
-    name: nameElement.value,
+
     number: playerNumberElement.value,
     kit: kitResponce,
   };
-//   console.log(fullResponce);
-  if(fullResponce.kit === "yes"){
-      console.log(await GetRandom());
-  }else{
-    console.log(await GetRandomKitless());
+
+  for (let index = 0; index < playerNumberElement.value; index++) {
+      if (fullResponce.kit === "no") {
+        displayConsleElement(await GetRandomKitless())
+          console.log("Player:",index+1, await GetRandomKitless());
+    } else {
+          console.log("Player:",index+1, await GetRandom());
+      }
   }
 });
 
-const userToQueryString = () =>{
-    const user = GetCurrentUser();
-    localStorage.setItem("name", user)
-}
-const logInFromQueryString = () =>{
-    const currentUser = localStorage.getItem("name")?? ""
-    SetCurrentUser(currentUser);
-}
+const userToQueryString = () => {
+  const user = GetCurrentUser();
+  localStorage.setItem("name", user);
+};
+const logInFromQueryString = () => {
+  const currentUser = localStorage.getItem("name") ?? "";
+  SetCurrentUser(currentUser);
+};
 
 const renderLoginForm = () => {
   const signInSectionElement = document.getElementById("signInSection");
@@ -72,7 +75,7 @@ const renderLoginForm = () => {
 };
 
 const renderLoginComplete = () => {
-    const userName = GetCurrentUser();
+  const userName = GetCurrentUser();
   const signInSectionElement = document.getElementById("signInSection");
 
   const signInFormElement = document.createElement("form");
@@ -100,13 +103,20 @@ const renderLoginComplete = () => {
 };
 
 const renderLogin = () => {
-    const user = GetCurrentUser();
-    if (!user){
-        renderLoginForm();
-    }else{
-        renderLoginComplete();
-    }
+  const user = GetCurrentUser();
+  if (!user) {
+    renderLoginForm();
+  } else {
+    renderLoginComplete();
+  }
 };
+
+const displayConsleElement = (input) =>{
+    const consoleElement = document.getElementById("falseConsole")
+    const nameElement = document.createElement("p")
+    nameElement.textContent=input.name;
+    consoleElement.appendChild(nameElement);
+}
 
 logInFromQueryString();
 renderLogin();
