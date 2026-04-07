@@ -42,14 +42,16 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [ ] *Stars*
     - ✅ Started to work on the backend stuff
 3. April 08 (40%)
-    - [ ] Create a backend to take the files and convert them to a list the program can use
-    - [ ] Use random to select an item from the list and send it to the frontend when **event Listener** activates
-    - [ ] **Filter** Use a filter to remove weapons with kits before the random
+    - [x] Create a backend to take the files and convert them to a list the program can use
+    - [x] Use random to select an item from the list and send it to the frontend when **event Listener** activates
+    - [x] filters out weapons with kits if selected
     - [x] **Read Query String** To track a username, and use **local Storage** to user name.
+    - ✅ Diplays as many players as put in
+    - ✅ Created a function to send the whole list of weapons to the frontend
 4. April 11 (50%)
     - [ ] **multiple pages** Page 2 list of weapons
         - [ ] create what appears to be a table with a row for each weapon that contains it's stats
-        - [ ] **search bar** filters the table and **mofdifies the dom**
+        - [ ] **search bar** **filters** the table and **mofdifies the dom**
         - [ ] *buttons to sort the table by that row*
 5. April 15 (70%)
     - [ ] Buffer Week, Catch up if I need to, if not start working on user costomized lists
@@ -64,12 +66,12 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - [ ] *Add extra stuff to page 2 stats*
 7. April 22 (90%)
     - [ ] Final touchups in the style and HTML department All things listed here I can do while doing Style eariler, I just wanted it all in one spot
-        - [ ] Entire layout is **Flex**
+        - [x] Entire layout is **Flex**
         - [ ] Buttons and boxes highlight when **hovered** and have propper **transition**
         - [ ] Page 2 rows grow slightly when hoverd. Every other row (**nth child**) is a different color
-        - [ ] Navbar across top
-        - [ ] Aside on the left
-        - [ ] Page one has a recreation of a the computer console in the center
+        - [x] Navbar across top
+        - [x] Aside on the left
+        - [x] Page one has a recreation of a the computer console in the center
         - [ ] Replacing the placeholder I mentioned before
         - [ ] Font
 
