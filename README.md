@@ -45,7 +45,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - [ ] Create a backend to take the files and convert them to a list the program can use
     - [ ] Use random to select an item from the list and send it to the frontend when **event Listener** activates
     - [ ] **Filter** Use a filter to remove weapons with kits before the random
-    - [ ] **Read Query String** To track a username, and use **local Storage** to save that users preferance.
+    - [x] **Read Query String** To track a username, and use **local Storage** to user name.
 4. April 11 (50%)
     - [ ] **multiple pages** Page 2 list of weapons
         - [ ] create what appears to be a table with a row for each weapon that contains it's stats

@@ -1,5 +1,5 @@
 import { GetCurrentUser, SetCurrentUser } from "./domain.js";
-import { GetFullList } from "./service.js";
+import { GetFullList, GetRandom, GetRandomKitless } from "./service.js";
 
 const formElement = document.getElementById("generatorForm");
 const nameElement = document.getElementById("nameInput");
@@ -24,9 +24,12 @@ formElement.addEventListener("submit", async (e) => {
     number: playerNumberElement.value,
     kit: kitResponce,
   };
-  console.log(fullResponce);
-
-  console.log(await GetFullList());
+//   console.log(fullResponce);
+  if(fullResponce.kit === "yes"){
+      console.log(await GetRandom());
+  }else{
+    console.log(await GetRandomKitless());
+  }
 });
 
 const userToQueryString = () =>{
