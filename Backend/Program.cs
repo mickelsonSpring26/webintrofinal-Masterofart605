@@ -43,8 +43,7 @@ string parseInputFile(string input)
     string newList = input.Substring(1);
     newList = newList.Remove(newList.Length - 1);
     return newList;
-}
-;
+};
 
 string combineFilesIntoOne()
 {

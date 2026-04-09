@@ -68,10 +68,13 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - [ ] Final touchups in the style and HTML department All things listed here I can do while doing Style eariler, I just wanted it all in one spot
         - [x] Entire layout is **Flex**
         - [ ] Buttons and boxes highlight when **hovered** and have propper **transition**
+        - [ ] Buttons have custom style
         - [ ] Page 2 rows grow slightly when hoverd. Every other row (**nth child**) is a different color
         - [x] Navbar across top
         - [x] Aside on the left
         - [x] Page one has a recreation of a the computer console in the center
         - [ ] Replacing the placeholder I mentioned before
         - [ ] Font
-
+        - [ ] Figure and Image (last html)
+        - [x] Hover and nth Child (last css)
+        - [ ] Map and filer (last js)

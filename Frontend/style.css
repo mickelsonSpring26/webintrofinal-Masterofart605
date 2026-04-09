@@ -7,6 +7,7 @@
   --mainBackground: #fee9ff;
 
   --formLight: #fffcff;
+  --formDim: #f8f1f7;
   --consoleDark: #1f1721;
 }
 
@@ -198,6 +199,49 @@ body {
     font-size: 20px;
     text-align: center;
 }
+.scrollBar{
+  overflow-y: scroll;
+}
+.table{
+  display: flex;
+  background-color: var(--formLight);
+  flex-grow: 1;
+  margin: 30px;
+  border-radius: 15px;
+  width:90%;
+  flex-direction: column;
+}
+.row:nth-child(even){
+  background-color: var(--formLight);
+}
+.row:nth-child(1){
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.row:last-child{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.row{
+  transition: 0.2s;
+  flex-grow: 1;
+  background-color: var(--formDim);
+  display: flex;
+}
+.row:hover{
+  transition: 0.2s;
+  scale: 1.05;
+  border-radius: 15px;
+}
+.row p{
+  flex-grow: 1;
+  padding: 10px;
+  width: 50px;
+}
+
+
+
+
 
 
 
