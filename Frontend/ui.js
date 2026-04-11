@@ -18,7 +18,6 @@ const hideElement = document.getElementById("hideButton");
 const sideBarElement = document.getElementById("pageDescription");
 const mainPageDetectorElement = document.getElementById("mainPage");
 
-console.log(mainPageDetectorElement);
 if (mainPageDetectorElement !== null) {
     const miniDisplayElement = document.getElementById("singleDisplay");
   formElement.addEventListener("submit", async (e) => {

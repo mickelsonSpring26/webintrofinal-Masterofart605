@@ -49,16 +49,17 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
     - ✅ Diplays as many players as put in
     - ✅ Created a function to send the whole list of weapons to the frontend
 4. April 11 (50%)
-    - [ ] **multiple pages** Page 2 list of weapons
-        - [ ] create what appears to be a table with a row for each weapon that contains it's stats
-        - [ ] **search bar** **filters** the table and **mofdifies the dom**
+    - [x] **multiple pages** Page 2 list of weapons
+        - [x] create what appears to be a table with a row for each weapon that contains it's stats
+        - [x] **search bar** **filters** the table and **modifies the dom**
         - [ ] *buttons to sort the table by that row*
+    - [x] started work on custom list page
 5. April 15 (70%)
     - [ ] Buffer Week, Catch up if I need to, if not start working on user costomized lists
         - [ ] *check box on page 2 to allow list editing*
         - [ ] *I suppose **Drag and drop** to take stuf from avialable list and put it in a custom list*
         - [ ] ***Locally Store*** *this as the user's custom list*
-        - [ ] *Add and option on page 1 to use the list instead of the random*
+        - [ ] *Add an option on page 1 to use the list instead of the random*
             - [ ] *Takes a random selection from the users list*
         - [ ] *When there is no user the user can make a custom list, The custom list is created blank with a new user*
 6. April 18 (80%)
@@ -69,7 +70,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [x] Entire layout is **Flex**
         - [ ] Buttons and boxes highlight when **hovered** and have propper **transition**
         - [ ] Buttons have custom style
-        - [ ] Page 2 rows grow slightly when hoverd. Every other row (**nth child**) is a different color
+        - [x] Page 2 rows grow slightly when **hoverd**. Every other row (**nth child**) is a different color
         - [x] Navbar across top
         - [x] Aside on the left
         - [x] Page one has a recreation of a the computer console in the center
@@ -77,4 +78,4 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
         - [ ] Font
         - [ ] Figure and Image (last html)
         - [x] Hover and nth Child (last css)
-        - [ ] Map and filer (last js)
+        - [ ] Map and [x] filer (last js)
