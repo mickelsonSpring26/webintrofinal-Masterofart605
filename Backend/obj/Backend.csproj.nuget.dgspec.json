@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\backend\\Backend.csproj": {}
+    "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\backend\\Backend.csproj": {
+    "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\backend\\obj\\",
+        "outputPath": "C:\\Users\\maste\\webdev\\webintrofinal-Masterofart605\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config"

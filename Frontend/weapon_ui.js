@@ -80,8 +80,11 @@ const renderList = (inputList) => {
     rowElement.appendChild(sub);
     rowElement.appendChild(special);
     rowElement.appendChild(type);
+    rowElement.draggable=true;
     tableElement.appendChild(rowElement);
   });
 };
+
+
 
 createPage();
