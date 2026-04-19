@@ -57,7 +57,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
 5. April 15 (70%)
     - [ ] Buffer Week, Catch up if I need to, if not start working on user costomized lists
         - [ ] *check box on page 2 to allow list editing*
-        - [ ] *I suppose **Drag and drop** to take stuff from avialable list and put it in a custom list*
+        - [x] *I suppose **Drag and drop** to take stuff from avialable list and put it in a custom list*
         - [ ] ***Locally Store*** *this as the user's custom list*
         - [ ] *Add an option on page 1 to use the list instead of the random*
             - [ ] *Takes a random selection from the users list*

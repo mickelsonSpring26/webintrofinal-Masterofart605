@@ -1,15 +1,20 @@
-import { AddToCustomList, EditWeaponList, GetCustomList, GetWeaponList} from "./domain.js";
+import {
+  AddToCustomList,
+  EditWeaponList,
+  GetCustomList,
+  GetWeaponList,
+} from "./domain.js";
 import { GetFullList } from "./service.js";
 
 const mainContentElement = document.getElementById("pageContent");
 const tableElement = document.createElement("article");
 const createPageDetectorElement = document.getElementById("create");
 
-const createPage = async() => {
+const createPage = async () => {
   tableElement.classList.add("table");
   tableElement.textContent = "";
   let list = await GetWeaponList();
-  console.log(list)
+  console.log(list);
   const searchFormElement = document.createElement("form");
   const inputLabelElement = document.createElement("label");
   const searchBarElement = document.createElement("input");
@@ -45,15 +50,13 @@ const createPage = async() => {
   mainTableDiv.appendChild(tableElement);
   if (createPageDetectorElement != null) {
     const newTableElement = document.createElement("article");
-    newTableElement.id = "customListElement"
+    newTableElement.id = "customListElement";
     newTableElement.classList.add("table");
     newTableElement.textContent = "";
     mainTableDiv.appendChild(newTableElement);
-    addDropabble(newTableElement,list);
+    addDropabble(newTableElement, list);
 
-
-
-    if (GetCustomList() !== ""){
+    if (GetCustomList() !== "") {
       renderList(GetCustomList());
     }
   }
@@ -104,7 +107,7 @@ const createRow = (weapon, id) => {
   return rowElement;
 };
 
-const addDropabble = (listElement,list) => {
+const addDropabble = (listElement, list) => {
   listElement.addEventListener("dragover", (event) => {
     event.preventDefault();
   });
@@ -115,18 +118,19 @@ const addDropabble = (listElement,list) => {
     const id = e.dataTransfer.getData(`text/plain`);
     console.log("moved id: ", id);
     const weaponList = await GetWeaponList();
-    console.log(weaponList[id-1]);
-    if(listElement.id = "customListElement"){
-      listElement.appendChild(createRow(weaponList[id-1],id))
-      const tempList = await GetWeaponList()
-      let newList = tempList.filter((element)=>{
-        return element.name !== weaponList[id-1].name;
-      })
+    console.log(weaponList[id - 1]);
+    if ((listElement.id = "customListElement")) {
+      listElement.appendChild(createRow(weaponList[id - 1], id));
+      const tempList = await GetWeaponList();
+      let newList = tempList.filter((element) => {
+        return element.name !== weaponList[id - 1].name;
+      });
       EditWeaponList(newList);
       renderList(await GetWeaponList());
     }
-  })
+  });
 };
+
 
 
 
