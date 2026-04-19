@@ -47,8 +47,8 @@ export const EditWeaponList = (newList) => {
 export const GetCustomList = () =>{
   return customList;
 }
-export const EditCustomList = (newlist) => {
-  customList = newList
+export const EditCustomList = (newList) => {
+  customList = newList;
 }
 
 export const AddToCustomList = (newElement) =>{

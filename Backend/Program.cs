@@ -36,6 +36,16 @@ app.MapGet("/randomKitless", () =>
 }
 );
 
+app.MapPost("/customList", (Weapon[] weapons) =>
+{
+    Console.Write(weapons);
+});
+
+app.MapPost("/name", (string name) =>
+{
+    // Directory.CreateDirectory(name);
+});
+
 app.Run();
 
 string parseInputFile(string input)

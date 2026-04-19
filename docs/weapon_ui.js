@@ -1,13 +1,16 @@
 import {
   AddToCustomList,
+  EditCustomList,
   EditWeaponList,
+  GetCurrentUser,
   GetCustomList,
   GetWeaponList,
 } from "./domain.js";
-import { GetFullList } from "./service.js";
+import { GetFullList, SendListData, SendUsername } from "./service.js";
 
 const mainContentElement = document.getElementById("pageContent");
 const tableElement = document.createElement("article");
+tableElement.id= "mainTable"
 const createPageDetectorElement = document.getElementById("create");
 
 const createPage = async () => {
@@ -59,6 +62,15 @@ const createPage = async () => {
     if (GetCustomList() !== "") {
       renderList(GetCustomList());
     }
+    const submitElement = document.createElement("button")
+    submitElement.type = "submit"
+    submitElement.textContent = "Submit"
+    submitElement.addEventListener("click", async (e) => {
+      e.preventDefault();
+      SendListData(await GetCustomList())
+      SendUsername(GetCurrentUser())
+    })
+    searchFormElement.appendChild(submitElement);
   }
   mainContentElement.appendChild(mainTableDiv);
   //   mainContentElement.appendChild(tableElement);
@@ -116,11 +128,23 @@ const addDropabble = (listElement, list) => {
   });
   listElement.addEventListener("drop", async (e) => {
     const id = e.dataTransfer.getData(`text/plain`);
-    console.log("moved id: ", id);
+    // console.log("moved id: ", id);
     const weaponList = await GetWeaponList();
-    console.log(weaponList[id - 1]);
+    // console.log(weaponList[id - 1]);
+
     if ((listElement.id = "customListElement")) {
       listElement.appendChild(createRow(weaponList[id - 1], id));
+      
+      let tempCustom = await GetCustomList();
+      if(tempCustom !== ""){
+        tempCustom.push(weaponList[id - 1]);
+      }else{
+        tempCustom = [];
+        tempCustom.push(weaponList[id - 1])
+      }
+      EditCustomList(tempCustom);
+      console.log(await GetCustomList())
+
       const tempList = await GetWeaponList();
       let newList = tempList.filter((element) => {
         return element.name !== weaponList[id - 1].name;
@@ -130,7 +154,6 @@ const addDropabble = (listElement, list) => {
     }
   });
 };
-
 
 
 
