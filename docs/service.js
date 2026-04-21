@@ -31,6 +31,6 @@ export const SendUsername = async (data) =>{
     headers: {
       "Content-Type": "application/json",
     },
-    name: JSON.stringify(data),
+    body: JSON.stringify(data),
   });
 }

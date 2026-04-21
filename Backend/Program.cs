@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(o =>
@@ -43,7 +44,7 @@ app.MapPost("/customList", (Weapon[] weapons) =>
 
 app.MapPost("/name", (string name) =>
 {
-    // Directory.CreateDirectory(name);
+    Directory.CreateDirectory($"users/{name}");
 });
 
 app.Run();
