@@ -47,11 +47,13 @@ body {
 .navButton {
   transition: 0.15s;
   flex-grow: 1;
-
 }
 .navButton:hover {
   transition: 0.15s;
   background-color: var(--navHover);
+}
+#navBar ul{
+  height: 100%;
 }
 
 /*side Bar*/
