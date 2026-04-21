@@ -1,0 +1,2 @@
+docker build -t splatRandom .
+docker run -it --rm splatrandom
