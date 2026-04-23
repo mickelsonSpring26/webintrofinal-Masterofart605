@@ -45,10 +45,12 @@ body {
   color: var(--navText);
 }
 .navButton {
+  padding: 0px;
   transition: 0.15s;
   flex-grow: 1;
 }
 .navButton:hover {
+  padding: 0px;
   transition: 0.15s;
   background-color: var(--navHover);
 }
@@ -279,8 +281,14 @@ body {
     margin: 0px;
   }
   .navButton {
-    padding: 16px;
     height: 100%;
+  }
+  .navButton a{
+    height: 100%
+  }
+  .navButton li{
+    padding-top: 20px;
+    /* height: 100%; */
   }
 }
 

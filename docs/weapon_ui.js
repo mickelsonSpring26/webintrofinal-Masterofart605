@@ -67,8 +67,9 @@ const createPage = async () => {
     submitElement.textContent = "Submit"
     submitElement.addEventListener("click", async (e) => {
       e.preventDefault();
+      const username = {user:await GetCurrentUser()}
+      SendUsername(username)
       SendListData(await GetCustomList())
-      SendUsername(GetCurrentUser())
     })
     searchFormElement.appendChild(submitElement);
   }

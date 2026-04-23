@@ -10,6 +10,9 @@ builder.Services.AddCors(o =>
     )
 );
 var app = builder.Build();
+string currentUser = "null";
+
+
 app.UseCors();
 
 app.MapGet("/", () => "Hello World!");
@@ -37,15 +40,24 @@ app.MapGet("/randomKitless", () =>
 }
 );
 
-app.MapPost("/customList", (Weapon[] weapons) =>
+app.MapPost("/name", (Username name) =>
 {
-    Console.Write(weapons);
+    currentUser = name.User;
+    if (!Directory.Exists($"users/{currentUser}"))
+    {
+        Directory.CreateDirectory($"users/{currentUser}");     
+    }
 });
 
-app.MapPost("/name", (string name) =>
+app.MapPost("/customList", (Weapon[] weapons) =>
 {
-    Directory.CreateDirectory($"users/{name}");
+    if (!Directory.Exists($"users/{currentUser}"))
+    {
+        Directory.CreateDirectory($"users/{currentUser}");     
+    }
+    File.WriteAllText($"users/{currentUser}/customList.json",JsonSerializer.Serialize(weapons));
 });
+
 
 app.Run();
 
@@ -88,3 +100,4 @@ Weapon generateRandom(List<Weapon> inputList, bool doKit)
 
 }
 public record Weapon(string Name, string reKit, string Sub, string Special,string Class);
+public record Username(string User);

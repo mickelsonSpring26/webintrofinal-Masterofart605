@@ -1,5 +1,5 @@
-// const baseUrl = `http://localhost:5050`;
-const baseUrl = `https://webintrofinal-masterofart605.onrender.com`
+const baseUrl = `http://localhost:5050`;
+// const baseUrl = `https://webintrofinal-masterofart605.onrender.com`
 
 export const GetFullList = async () => {
   const responce = await fetch(`${baseUrl}/fullList`);
@@ -28,12 +28,13 @@ export const SendListData = async (data) =>{
     body: JSON.stringify(data),
   });
 }
-export const SendUsername = async (data) =>{
+export const SendUsername = async (input) =>{
+  console.log(input)
   await fetch(`${baseUrl}/name`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(input),
   });
 }
