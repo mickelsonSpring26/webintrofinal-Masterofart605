@@ -1,5 +1,5 @@
-const baseUrl = `http://localhost:5050`;
-// const baseUrl = `https://webintrofinal-masterofart605.onrender.com`
+// const baseUrl = `http://localhost:5050`;
+const baseUrl = `https://webintrofinal-masterofart605.onrender.com`
 
 export const GetFullList = async () => {
   const responce = await fetch(`${baseUrl}/fullList`);
