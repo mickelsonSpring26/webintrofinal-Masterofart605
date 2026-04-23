@@ -28,6 +28,13 @@ export const SendListData = async (data) =>{
     body: JSON.stringify(data),
   });
 }
+
+export const fetchListData =  async () => {
+  const responce = await fetch(`${baseUrl}/customList`);
+  const data = await responce.json();
+  return data;
+};
+
 export const SendUsername = async (input) =>{
   console.log(input)
   await fetch(`${baseUrl}/name`, {

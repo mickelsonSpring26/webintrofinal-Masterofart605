@@ -1,19 +1,32 @@
 import {
   AddToCustomList,
   EditCustomList,
+  EditFilteredWeaponList,
   EditWeaponList,
   GetCurrentUser,
   GetCustomList,
+  GetFilteredWeaponList,
   GetWeaponList,
 } from "./domain.js";
-import { GetFullList, SendListData, SendUsername } from "./service.js";
+import {
+  fetchListData,
+  GetFullList,
+  SendListData,
+  SendUsername,
+} from "./service.js";
 
 const mainContentElement = document.getElementById("pageContent");
 const tableElement = document.createElement("article");
-tableElement.id= "mainTable"
+tableElement.id = "mainTable";
 const createPageDetectorElement = document.getElementById("create");
+const newTableElement = document.createElement("article");
 
 const createPage = async () => {
+  const currentUser = { user: await GetCurrentUser() }
+  if (currentUser !== "") {
+    SendUsername(currentUser);
+  }
+
   tableElement.classList.add("table");
   tableElement.textContent = "";
   let list = await GetWeaponList();
@@ -26,6 +39,14 @@ const createPage = async () => {
   inputLabelElement.for = "searchBox";
   inputLabelElement.textContent = "Filter list by what ever you want!";
   searchFormElement.classList.add("searchBox");
+
+  //Get custom list if it exists
+  if (currentUser !== "") {    
+    console.log(await fetchListData());
+    const fetchData = await fetchListData();
+    EditCustomList(fetchData);
+  }
+
   let filter = "";
   let newList = await list;
   searchBarElement.addEventListener("input", async (e) => {
@@ -36,11 +57,21 @@ const createPage = async () => {
         weapon.class.toLowerCase().includes(filter) ||
         weapon.reKit.toLowerCase().includes(filter) ||
         weapon.name.toLowerCase().includes(filter)
-        //   ||weapon.Sub.toLowerCase().includes(filter)||weapon.Special.toLowerCase().includes(filter)
+        // ||weapon.Sub.toLowerCase().includes(filter)
+        // ||weapon.Special.toLowerCase().includes(filter)
       );
     });
+    newList = filterFromCustom(newList);
+    EditFilteredWeaponList(newList);
+    // console.log(await GetFilteredWeaponList())
     renderList(newList);
   });
+  
+  //Filter stuff already in custom list.
+  newList = filterFromCustom(newList);
+  EditFilteredWeaponList(newList);
+  
+  
 
   searchFormElement.appendChild(inputLabelElement);
   searchFormElement.appendChild(searchBarElement);
@@ -52,40 +83,67 @@ const createPage = async () => {
   mainTableDiv.classList.add("tablesContainer");
   mainTableDiv.appendChild(tableElement);
   if (createPageDetectorElement != null) {
-    const newTableElement = document.createElement("article");
     newTableElement.id = "customListElement";
     newTableElement.classList.add("table");
     newTableElement.textContent = "";
     mainTableDiv.appendChild(newTableElement);
     addDropabble(newTableElement, list);
+    addDropabble(tableElement)
 
     if (GetCustomList() !== "") {
-      renderList(GetCustomList());
+      renderCustomList(GetCustomList());
     }
-    const submitElement = document.createElement("button")
-    submitElement.type = "submit"
-    submitElement.textContent = "Submit"
+    const submitElement = document.createElement("button");
+    submitElement.type = "submit";
+    submitElement.textContent = "Submit";
     submitElement.addEventListener("click", async (e) => {
       e.preventDefault();
-      const username = {user:await GetCurrentUser()}
-      SendUsername(username)
-      SendListData(await GetCustomList())
-    })
+      const username = { user: await GetCurrentUser() };
+      SendUsername(username);
+      SendListData(await GetCustomList());
+    });
     searchFormElement.appendChild(submitElement);
   }
   mainContentElement.appendChild(mainTableDiv);
   //   mainContentElement.appendChild(tableElement);
 };
 
-const renderList = (inputList) => {
-  tableElement.replaceChildren();
-  let id = 1;
-  inputList.forEach((weapon) => {
-    const newRow = createRow(weapon, id);
-    tableElement.appendChild(newRow);
-    id++;
-  });
+const renderList = (inputList,isCustom) => {
+    tableElement.replaceChildren();
+    let id = 1;
+    inputList.forEach((weapon) => {
+      const newRow = createRow(weapon, id);
+      tableElement.appendChild(newRow);
+      id++;
+    });
 };
+
+const filterFromCustom = (newList) =>{
+  const filterList = GetCustomList();
+    filterList.forEach(element => {
+    newList = newList.filter((weapon)=>{
+      if(weapon.name.toLowerCase() === element.name.toLowerCase()){
+        return false;
+      } else{
+        return true;
+      }
+    })
+  });
+  return newList;
+}
+
+
+const renderCustomList = (inputList,isCustom) => {
+    newTableElement.replaceChildren();
+    let id = 1;
+    inputList.forEach((weapon) => {
+      const newRow = createRow(weapon, id);
+      newTableElement.appendChild(newRow);
+      id++;
+    });
+};
+
+
 
 const createRow = (weapon, id) => {
   const myId = id;
@@ -130,32 +188,56 @@ const addDropabble = (listElement, list) => {
   listElement.addEventListener("drop", async (e) => {
     const id = e.dataTransfer.getData(`text/plain`);
     // console.log("moved id: ", id);
-    const weaponList = await GetWeaponList();
+    const weaponList = await GetFilteredWeaponList();
     // console.log(weaponList[id - 1]);
 
-    if ((listElement.id = "customListElement")) {
-      listElement.appendChild(createRow(weaponList[id - 1], id));
-      
+    if ((listElement.id == "customListElement")) {
+      listElement.appendChild(createRow(weaponList[id - 1], listElement.childElementCount+1));
+      console.log(listElement.childElementCount)
+      const weaponName = weaponList[id - 1].name;
       let tempCustom = await GetCustomList();
-      if(tempCustom !== ""){
+      if (tempCustom !== "") {
         tempCustom.push(weaponList[id - 1]);
-      }else{
+      } else {
         tempCustom = [];
-        tempCustom.push(weaponList[id - 1])
+        tempCustom.push(weaponList[id - 1]);
       }
       EditCustomList(tempCustom);
-      console.log(await GetCustomList())
+      console.log(await GetCustomList());
 
-      const tempList = await GetWeaponList();
+      const tempList = await GetFilteredWeaponList();
       let newList = tempList.filter((element) => {
         return element.name !== weaponList[id - 1].name;
       });
-      EditWeaponList(newList);
-      renderList(await GetWeaponList());
+      EditFilteredWeaponList(newList);
+      renderList(await GetFilteredWeaponList());
     }
+
+    const weaponListCustom = await GetCustomList();
+
+if ((listElement.id == "mainTable")) {
+      listElement.appendChild(createRow(weaponListCustom[id - 1], listElement.childElementCount+1));
+      const weaponName = weaponListCustom[id - 1].name;
+      let tempCustom = await GetFilteredWeaponList();
+      if (tempCustom !== "") {
+        tempCustom.push(weaponListCustom[id - 1]);
+      } else {
+        tempCustom = [];
+        tempCustom.push(weaponListCustom[id - 1]);
+      }
+      EditFilteredWeaponList(tempCustom);
+      // console.log(await GetFilteredWeaponList());
+
+      const tempList = await GetCustomList();
+      let newList = tempList.filter((element) => {
+        return element.name !== weaponListCustom[id - 1].name;
+      });
+      EditCustomList(newList);
+      renderCustomList(await GetCustomList());
+    }
+
   });
+  
 };
-
-
 
 createPage();

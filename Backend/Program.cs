@@ -47,6 +47,7 @@ app.MapPost("/name", (Username name) =>
     {
         Directory.CreateDirectory($"users/{currentUser}");     
     }
+ 
 });
 
 app.MapPost("/customList", (Weapon[] weapons) =>
@@ -56,6 +57,21 @@ app.MapPost("/customList", (Weapon[] weapons) =>
         Directory.CreateDirectory($"users/{currentUser}");     
     }
     File.WriteAllText($"users/{currentUser}/customList.json",JsonSerializer.Serialize(weapons));
+});
+
+app.MapGet("/customList", () =>
+{
+    if (!File.Exists($"users/{currentUser}/customList.json"))
+    {
+        File.Create($"users/{currentUser}/customList.json");
+    }
+    string customList = File.ReadAllText($"users/{currentUser}/customList.json");
+    if (customList == "")
+    {
+        customList = "[]";
+    }
+    List<Weapon> returnList = JsonSerializer.Deserialize<List<Weapon>>(customList);
+    return returnList;
 });
 
 

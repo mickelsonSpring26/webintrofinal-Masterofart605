@@ -4,6 +4,7 @@ import { GetFullList } from "./service.js";
 let user = "";
 let hideSidebar = "no";
 let weaponList = "";
+let filteredWeaponList = "";
 let customList = "";
 
 
@@ -43,6 +44,16 @@ export const GetWeaponList = async() =>{
 export const EditWeaponList = (newList) => {
   weaponList = newList;
 }
+
+export const GetFilteredWeaponList = async() =>{
+    return filteredWeaponList;
+}
+export const EditFilteredWeaponList = (newList) => {
+  filteredWeaponList = newList;
+}
+
+
+
 
 export const GetCustomList = () =>{
   return customList;
