@@ -1,12 +1,10 @@
 import { GetFullList } from "./service.js";
 
-
 let user = "";
 let hideSidebar = "no";
 let weaponList = "";
 let filteredWeaponList = "";
 let customList = "";
-
 
 export const GetCurrentUser = () => {
   return user;
@@ -33,35 +31,30 @@ export const GetHideValue = () => {
   return hideSidebar;
 };
 
-
-export const GetWeaponList = async() =>{
-  if(weaponList === ""){
+export const GetWeaponList = async () => {
+  if (weaponList === "") {
     weaponList = await GetFullList();
-
   }
-    return weaponList;
-}
+  return weaponList;
+};
 export const EditWeaponList = (newList) => {
   weaponList = newList;
-}
+};
 
-export const GetFilteredWeaponList = async() =>{
-    return filteredWeaponList;
-}
+export const GetFilteredWeaponList = async () => {
+  return filteredWeaponList;
+};
 export const EditFilteredWeaponList = (newList) => {
   filteredWeaponList = newList;
-}
+};
 
-
-
-
-export const GetCustomList = () =>{
+export const GetCustomList = () => {
   return customList;
-}
+};
 export const EditCustomList = (newList) => {
   customList = newList;
-}
+};
 
-export const AddToCustomList = (newElement) =>{
+export const AddToCustomList = (newElement) => {
   customList = customList + newElement;
-}
+};

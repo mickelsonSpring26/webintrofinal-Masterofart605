@@ -1,5 +1,5 @@
 // const baseUrl = `http://localhost:5050`;
-const baseUrl = `https://webintrofinal-masterofart605.onrender.com`
+const baseUrl = `https://webintrofinal-masterofart605.onrender.com`;
 
 export const GetFullList = async () => {
   const responce = await fetch(`${baseUrl}/fullList`);
@@ -19,7 +19,7 @@ export const GetRandomKitless = async () => {
   return data;
 };
 
-export const SendListData = async (data) =>{
+export const SendListData = async (data) => {
   await fetch(`${baseUrl}/customList`, {
     method: "POST",
     headers: {
@@ -27,16 +27,16 @@ export const SendListData = async (data) =>{
     },
     body: JSON.stringify(data),
   });
-}
+};
 
-export const fetchListData =  async () => {
+export const fetchListData = async () => {
   const responce = await fetch(`${baseUrl}/customList`);
   const data = await responce.json();
   return data;
 };
 
-export const SendUsername = async (input) =>{
-  console.log(input)
+export const SendUsername = async (input) => {
+  console.log(input);
   await fetch(`${baseUrl}/name`, {
     method: "POST",
     headers: {
@@ -44,4 +44,4 @@ export const SendUsername = async (input) =>{
     },
     body: JSON.stringify(input),
   });
-}
+};

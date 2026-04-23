@@ -22,7 +22,7 @@ const createPageDetectorElement = document.getElementById("create");
 const newTableElement = document.createElement("article");
 
 const createPage = async () => {
-  const currentUser = { user: await GetCurrentUser() }
+  const currentUser = { user: await GetCurrentUser() };
   if (currentUser !== "") {
     SendUsername(currentUser);
   }
@@ -41,7 +41,7 @@ const createPage = async () => {
   searchFormElement.classList.add("searchBox");
 
   //Get custom list if it exists
-  if (currentUser !== "") {    
+  if (currentUser !== "") {
     console.log(await fetchListData());
     const fetchData = await fetchListData();
     EditCustomList(fetchData);
@@ -66,12 +66,10 @@ const createPage = async () => {
     // console.log(await GetFilteredWeaponList())
     renderList(newList);
   });
-  
+
   //Filter stuff already in custom list.
   newList = filterFromCustom(newList);
   EditFilteredWeaponList(newList);
-  
-  
 
   searchFormElement.appendChild(inputLabelElement);
   searchFormElement.appendChild(searchBarElement);
@@ -88,7 +86,7 @@ const createPage = async () => {
     newTableElement.textContent = "";
     mainTableDiv.appendChild(newTableElement);
     addDropabble(newTableElement, list);
-    addDropabble(tableElement)
+    addDropabble(tableElement);
 
     if (GetCustomList() !== "") {
       renderCustomList(GetCustomList());
@@ -108,42 +106,39 @@ const createPage = async () => {
   //   mainContentElement.appendChild(tableElement);
 };
 
-const renderList = (inputList,isCustom) => {
-    tableElement.replaceChildren();
-    let id = 1;
-    inputList.forEach((weapon) => {
-      const newRow = createRow(weapon, id);
-      tableElement.appendChild(newRow);
-      id++;
-    });
+const renderList = (inputList, isCustom) => {
+  tableElement.replaceChildren();
+  let id = 1;
+  inputList.forEach((weapon) => {
+    const newRow = createRow(weapon, id);
+    tableElement.appendChild(newRow);
+    id++;
+  });
 };
 
-const filterFromCustom = (newList) =>{
+const filterFromCustom = (newList) => {
   const filterList = GetCustomList();
-    filterList.forEach(element => {
-    newList = newList.filter((weapon)=>{
-      if(weapon.name.toLowerCase() === element.name.toLowerCase()){
+  filterList.forEach((element) => {
+    newList = newList.filter((weapon) => {
+      if (weapon.name.toLowerCase() === element.name.toLowerCase()) {
         return false;
-      } else{
+      } else {
         return true;
       }
-    })
+    });
   });
   return newList;
-}
-
-
-const renderCustomList = (inputList,isCustom) => {
-    newTableElement.replaceChildren();
-    let id = 1;
-    inputList.forEach((weapon) => {
-      const newRow = createRow(weapon, id);
-      newTableElement.appendChild(newRow);
-      id++;
-    });
 };
 
-
+const renderCustomList = (inputList, isCustom) => {
+  newTableElement.replaceChildren();
+  let id = 1;
+  inputList.forEach((weapon) => {
+    const newRow = createRow(weapon, id);
+    newTableElement.appendChild(newRow);
+    id++;
+  });
+};
 
 const createRow = (weapon, id) => {
   const myId = id;
@@ -191,9 +186,11 @@ const addDropabble = (listElement, list) => {
     const weaponList = await GetFilteredWeaponList();
     // console.log(weaponList[id - 1]);
 
-    if ((listElement.id == "customListElement")) {
-      listElement.appendChild(createRow(weaponList[id - 1], listElement.childElementCount+1));
-      console.log(listElement.childElementCount)
+    if (listElement.id == "customListElement") {
+      listElement.appendChild(
+        createRow(weaponList[id - 1], listElement.childElementCount + 1),
+      );
+      console.log(listElement.childElementCount);
       const weaponName = weaponList[id - 1].name;
       let tempCustom = await GetCustomList();
       if (tempCustom !== "") {
@@ -215,8 +212,10 @@ const addDropabble = (listElement, list) => {
 
     const weaponListCustom = await GetCustomList();
 
-if ((listElement.id == "mainTable")) {
-      listElement.appendChild(createRow(weaponListCustom[id - 1], listElement.childElementCount+1));
+    if (listElement.id == "mainTable") {
+      listElement.appendChild(
+        createRow(weaponListCustom[id - 1], listElement.childElementCount + 1),
+      );
       const weaponName = weaponListCustom[id - 1].name;
       let tempCustom = await GetFilteredWeaponList();
       if (tempCustom !== "") {
@@ -235,9 +234,7 @@ if ((listElement.id == "mainTable")) {
       EditCustomList(newList);
       renderCustomList(await GetCustomList());
     }
-
   });
-  
 };
 
 createPage();

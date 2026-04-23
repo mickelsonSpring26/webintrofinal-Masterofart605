@@ -30,7 +30,7 @@ body {
   flex-grow: 1;
   background-color: var(--navColor);
   color: var(--navText);
-  max-height:  9vh;
+  max-height: 9vh;
   box-shadow: 0px 1px 4px var(--navShadow);
   z-index: 1;
 }
@@ -54,7 +54,7 @@ body {
   transition: 0.15s;
   background-color: var(--navHover);
 }
-#navBar ul{
+#navBar ul {
   height: 100%;
 }
 
@@ -183,37 +183,37 @@ body {
   background-color: var(--formLight);
   border-radius: 10px;
 }
-#singleDisplay{
-    display: flex;
+#singleDisplay {
+  display: flex;
 }
-#singleDisplay img{
-    margin: 10px;
+#singleDisplay img {
+  margin: 10px;
 }
-#singleDisplay h1{
-    margin-top: 35px;
-    font-size: 25px;
-    text-align: center;
-    flex-grow: 1;
+#singleDisplay h1 {
+  margin-top: 35px;
+  font-size: 25px;
+  text-align: center;
+  flex-grow: 1;
 }
-#singleDisplay h3{
-    flex-grow: 2;
-    border-left-style: solid;
-    border-left-color: var(--descColor);
-    margin-left: 5px;
-    padding-top: 20px;
-    font-size: 20px;
-    text-align: center;
+#singleDisplay h3 {
+  flex-grow: 2;
+  border-left-style: solid;
+  border-left-color: var(--descColor);
+  margin-left: 5px;
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
 }
-.scrollBar{
+.scrollBar {
   overflow-y: scroll;
 }
 
-.tablesContainer{
+.tablesContainer {
   width: 90%;
   display: flex;
   flex-direction: row;
 }
-.table{
+.table {
   display: flex;
   background-color: var(--formLight);
   flex-grow: 1;
@@ -222,36 +222,36 @@ body {
   /* width:90%; */
   flex-direction: column;
 }
-.row:nth-child(even){
+.row:nth-child(even) {
   background-color: var(--formLight);
 }
-.row:nth-child(1){
+.row:nth-child(1) {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-.row:last-child{
+.row:last-child {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-.row{
+.row {
   transition: 0.2s;
   flex-grow: 1;
   background-color: var(--formDim);
   display: flex;
   max-height: fit-content;
 }
-.row:hover{
+.row:hover {
   transition: 0.2s;
   scale: 1.05;
   border-radius: 15px;
 }
-.row p{
+.row p {
   flex-grow: 1;
   padding: 10px;
   width: 50px;
 }
 
-.searchBox{
+.searchBox {
   display: flex;
   margin-top: 10px;
   padding: 15px;
@@ -262,16 +262,10 @@ body {
   flex-direction: row;
   align-content: center;
 }
-.searchBox input{
+.searchBox input {
   flex-grow: 1;
   margin-left: 5px;
 }
-
-
-
-
-
-
 
 /* Computer Mode */
 @media screen and (min-width: 401px) {
@@ -283,11 +277,11 @@ body {
   .navButton {
     height: 100%;
   }
-  .navButton a{
-    height: 100%
+  .navButton a {
+    height: 100%;
   }
-  .navButton li{
-    padding-top: 20px;
+  .navButton li {
+    padding-top: 3vh;
     /* height: 100%; */
   }
 }
