@@ -12,14 +12,24 @@ const playerNumberElement = document.getElementById("playerInput");
 const radioSectionElement = document.getElementById("radioSection");
 const radioYesElement = document.getElementById("kitsYes");
 const radioNoElement = document.getElementById("kitsNo");
+const radioCustomYesElement = document.getElementById("customYes");
+const radioCustomNoElement = document.getElementById("customNo");
 const consoleElement = document.getElementById("falseConsole");
 const signInSectionElement = document.getElementById("signInSection");
 const hideElement = document.getElementById("hideButton");
 const sideBarElement = document.getElementById("pageDescription");
 const mainPageDetectorElement = document.getElementById("mainPage");
 
-if (mainPageDetectorElement !== null) {
-    const miniDisplayElement = document.getElementById("singleDisplay");
+const renderMain = async () => {
+  const miniDisplayElement = document.getElementById("singleDisplay");
+  const currentUser = await GetCurrentUser();
+  radioCustomNoElement.addEventListener("input", () => {
+    radioSectionElement.classList.remove("hide");
+  });
+  radioCustomYesElement.addEventListener("input", () => {
+    radioSectionElement.classList.add("hide");
+  });
+
   formElement.addEventListener("submit", async (e) => {
     e.preventDefault();
     let kitResponce = "";
@@ -31,42 +41,55 @@ if (mainPageDetectorElement !== null) {
       kitResponce = "This should not be happening";
     }
 
+    let customResponce = "";
+    if (radioCustomYesElement.checked === true) {
+      customResponce = "yes";
+    } else if (radioCustomNoElement.checked === true) {
+      customResponce = "no";
+    } else {
+      customResponce = "This should not be happening";
+    }
+
     const fullResponce = {
       number: playerNumberElement.value,
       kit: kitResponce,
+      custom: customResponce,
     };
     consoleElement.replaceChildren();
     let returnedValue = "";
     for (let index = 0; index < playerNumberElement.value; index++) {
       if (fullResponce.kit === "no") {
-        returnedValue = await GetRandomKitless() 
-        displayConsleElement(returnedValue, index + 1);
+        if(fullResponce.custom === yes){
+          
+        }else{
+          returnedValue = await GetRandomKitless();
+          displayConsleElement(returnedValue, index + 1);
+        }
       } else {
-        returnedValue = await GetRandom() 
+        returnedValue = await GetRandom();
         displayConsleElement(returnedValue, index + 1);
       }
-      if(index===0){
-          const displayImage = document.createElement("img")
-          displayImage.src = "https://placehold.co/50x50"
-        const nameBoxElement = document.createElement("h1")
-        nameBoxElement.textContent = returnedValue.name
-        const subElement = document.createElement("h3")
-        subElement.textContent = returnedValue.sub
-        const specialElement = document.createElement("h3")
-        specialElement.textContent = returnedValue.special
-        const classElement = document.createElement("h3")
-        classElement.textContent = returnedValue.class
+      if (index === 0) {
+        const displayImage = document.createElement("img");
+        displayImage.src = "https://placehold.co/50x50";
+        const nameBoxElement = document.createElement("h1");
+        nameBoxElement.textContent = returnedValue.name;
+        const subElement = document.createElement("h3");
+        subElement.textContent = returnedValue.sub;
+        const specialElement = document.createElement("h3");
+        specialElement.textContent = returnedValue.special;
+        const classElement = document.createElement("h3");
+        classElement.textContent = returnedValue.class;
         miniDisplayElement.replaceChildren();
-        miniDisplayElement.appendChild(displayImage)
-        miniDisplayElement.appendChild(nameBoxElement)
-        miniDisplayElement.appendChild(subElement)
-        miniDisplayElement.appendChild(specialElement)
-        miniDisplayElement.appendChild(classElement)
+        miniDisplayElement.appendChild(displayImage);
+        miniDisplayElement.appendChild(nameBoxElement);
+        miniDisplayElement.appendChild(subElement);
+        miniDisplayElement.appendChild(specialElement);
+        miniDisplayElement.appendChild(classElement);
+      }
     }
-    }
-
   });
-}
+};
 
 hideElement.addEventListener("click", () => {
   ToggleSideBar();
@@ -182,3 +205,6 @@ const displayConsleElement = (input, number) => {
 
 logInFromQueryString();
 renderLogin();
+if (mainPageDetectorElement !== null) {
+  renderMain();
+}

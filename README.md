@@ -79,16 +79,15 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
      - [x] Page one has a recreation of a the computer console in the center
      - [ ] Replacing the placeholder I mentioned before
      - [ ] Font
-     - [ ] Figure and Image (last html)
+     - [x] Figure and Image (last html)
      - [x] Hover and nth Child (last css)
      - [ ] text Color (also css)
-     - [ ] Map and [x] filer (last js)
-     - [ ] actual query string (Js)
+     - [x] Map and [x] filer (last js)
+     - [x] actual query string (Js)
      - [ ] mobile responsive css
 
     - [ ] color more blue
-    - [ ] desatureate the side bar
+    - [ ] desaturate the side bar
     - [ ] text to fill the empty console
-    - [ ] font
     - [ ] descriptions/labels
     - [ ] better format for the custom page.

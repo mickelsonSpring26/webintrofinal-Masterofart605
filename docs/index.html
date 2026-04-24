@@ -38,7 +38,13 @@
             <br />
             <input type="number" name="" id="playerInput" />
           </label>
-          <section id="radioSection">
+          <section id="customRadioSection">
+            Use your custom list?
+            <br />
+            <label> <input type="radio" name="custom" id="customYes" />Yes </label>
+            <label> <input type="radio" name="custom" id="customNo" />No </label>
+          </section>
+          <section id="radioSection" class="hide">
             Use Kits
             <br />
             <label> <input type="radio" name="kits" id="kitsYes" />Yes </label>
@@ -50,6 +56,7 @@
             <br />
             <button type="reset">Clear</button>
           </section>
+
         </form>
         <section id="falseConsole"></section>
         <section id="singleDisplay"></section>

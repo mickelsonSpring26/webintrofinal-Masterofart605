@@ -39,6 +39,12 @@ app.MapGet("/randomKitless", () =>
     return generateRandom(returnList, false);
 }
 );
+app.MapGet("/randomCustom", () =>
+{
+    string newList = File.ReadAllText($"users/{currentUser}/customList.json");
+    List<Weapon> returnList = JsonSerializer.Deserialize<List<Weapon>>(newList);
+    return generateRandom(returnList, false);
+});
 
 app.MapPost("/name", (Username name) =>
 {
@@ -47,7 +53,6 @@ app.MapPost("/name", (Username name) =>
     {
         Directory.CreateDirectory($"users/{currentUser}");     
     }
- 
 });
 
 app.MapPost("/customList", (Weapon[] weapons) =>
