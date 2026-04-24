@@ -4,7 +4,7 @@ import {
   SetCurrentUser,
   ToggleSideBar,
 } from "./domain.js";
-import { GetFullList, GetRandom, GetRandomKitless } from "./service.js";
+import { GetFullList, GetRandom, GetRandomCustom, GetRandomKitless, SendUsername } from "./service.js";
 
 const formElement = document.getElementById("generatorForm");
 const nameElement = document.getElementById("nameInput");
@@ -21,6 +21,7 @@ const sideBarElement = document.getElementById("pageDescription");
 const mainPageDetectorElement = document.getElementById("mainPage");
 
 const renderMain = async () => {
+  SendUsername({user:await GetCurrentUser()});
   const miniDisplayElement = document.getElementById("singleDisplay");
   const currentUser = await GetCurrentUser();
   radioCustomNoElement.addEventListener("input", () => {
@@ -58,16 +59,17 @@ const renderMain = async () => {
     consoleElement.replaceChildren();
     let returnedValue = "";
     for (let index = 0; index < playerNumberElement.value; index++) {
+      if(fullResponce.custom === "yes"){
+        returnedValue = await GetRandomCustom();
+        displayConsleElement(returnedValue, index+1);
+      }else{
       if (fullResponce.kit === "no") {
-        if(fullResponce.custom === yes){
-          
-        }else{
           returnedValue = await GetRandomKitless();
           displayConsleElement(returnedValue, index + 1);
+        } else {
+          returnedValue = await GetRandom();
+          displayConsleElement(returnedValue, index + 1);
         }
-      } else {
-        returnedValue = await GetRandom();
-        displayConsleElement(returnedValue, index + 1);
       }
       if (index === 0) {
         const displayImage = document.createElement("img");

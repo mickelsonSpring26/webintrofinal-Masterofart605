@@ -19,6 +19,13 @@ export const GetRandomKitless = async () => {
   return data;
 };
 
+export const GetRandomCustom = async () => {
+  const responce = await fetch(`${baseUrl}/randomCustom`);
+  const data = await responce.json();
+  return data;
+};
+
+
 export const SendListData = async (data) => {
   await fetch(`${baseUrl}/customList`, {
     method: "POST",

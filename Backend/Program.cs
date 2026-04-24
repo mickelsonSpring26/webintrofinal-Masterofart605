@@ -43,7 +43,7 @@ app.MapGet("/randomCustom", () =>
 {
     string newList = File.ReadAllText($"users/{currentUser}/customList.json");
     List<Weapon> returnList = JsonSerializer.Deserialize<List<Weapon>>(newList);
-    return generateRandom(returnList, false);
+    return generateRandom(returnList, true);
 });
 
 app.MapPost("/name", (Username name) =>
@@ -107,6 +107,7 @@ string combineFilesIntoOne()
 
 Weapon generateRandom(List<Weapon> inputList, bool doKit)
 {
+
     Random random = new Random();
     int randomOutput = random.Next(0, inputList.Count());
     if (doKit == false && inputList.ElementAt(randomOutput).reKit == "True")
@@ -116,6 +117,9 @@ Weapon generateRandom(List<Weapon> inputList, bool doKit)
     }
     else
     {
+        Console.WriteLine(randomOutput);
+        Console.WriteLine(currentUser);
+        Console.WriteLine(inputList);
         return inputList.ElementAt(randomOutput);
     }
 
