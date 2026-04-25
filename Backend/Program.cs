@@ -117,9 +117,9 @@ Weapon generateRandom(List<Weapon> inputList, bool doKit)
     }
     else
     {
-        Console.WriteLine(randomOutput);
-        Console.WriteLine(currentUser);
-        Console.WriteLine(inputList);
+        // Console.WriteLine(randomOutput);
+        // Console.WriteLine(currentUser);
+        // Console.WriteLine(inputList);
         return inputList.ElementAt(randomOutput);
     }
 

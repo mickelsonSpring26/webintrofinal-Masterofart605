@@ -30,7 +30,6 @@ const createPage = async () => {
   tableElement.classList.add("table");
   tableElement.textContent = "";
   let list = await GetWeaponList();
-  console.log(list);
   const searchFormElement = document.createElement("form");
   const inputLabelElement = document.createElement("label");
   const searchBarElement = document.createElement("input");
@@ -43,7 +42,7 @@ const createPage = async () => {
   //Get custom list if it exists
   if (createPageDetectorElement != null) {
     if (currentUser !== "") {
-      console.log(await fetchListData());
+      // console.log(await fetchListData());
       const fetchData = await fetchListData();
       EditCustomList(fetchData);
     }
@@ -202,7 +201,7 @@ const addDropabble = (listElement, list) => {
       listElement.appendChild(
         createRow(weaponList[id - 1], listElement.childElementCount + 1),
       );
-      console.log(listElement.childElementCount);
+      // console.log(listElement.childElementCount);
       const weaponName = weaponList[id - 1].name;
       let tempCustom = await GetCustomList();
       if (tempCustom !== "") {

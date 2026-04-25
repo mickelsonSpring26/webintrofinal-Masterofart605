@@ -2,28 +2,26 @@
   --navColor: #111111;
   --navHover: #5b28ff;
   --navText: #e9e9e9;
-  --navTextHover:#ffffff;
-  --navButton:#292929;
+  --navTextHover: #ffffff;
+  --navButton: #292929;
   --navShadow: #262626;
   --descriptionColor: #292929;
   --mainBackground: #404040;
 
-  --buttonYellow:#dfec08;
-  --buttonTextShadow:#a0ab21;
-  --buttonHover:#b095f3;
-  --buttonHoverShadow:#8265ca;
-  --buttonInnerline:rgb(16, 16, 16);
+  --buttonYellow: #dfec08;
+  --buttonTextShadow: #a0ab21;
+  --buttonHover: #b095f3;
+  --buttonHoverShadow: #8265ca;
+  --buttonInnerline: rgb(16, 16, 16);
 
---listYellowDark:#f3ff4b;
---listBlueDark:#3322cd;
-
+  --listYellowDark: #f3ff4b;
+  --listBlueDark: #3322cd;
 
   --formLight: #ffffff2b;
   --formDim: #c3c3c350;
   --consoleDark: #1f1721;
-  --consoleText:rgb(255, 254, 224);
+  --consoleText: rgb(255, 254, 224);
 }
-
 body {
   font-family: Splatfont2;
   font-size: 14px;
@@ -37,9 +35,9 @@ body {
   flex-direction: column;
   overflow-y: hidden;
 }
-.customButton{
+.customButton {
   transition: 0.2s;
-  border-style:double;
+  border-style: double;
   border-color: transparent;
   background-color: var(--buttonYellow);
   box-shadow: inset 0 0 0 1px var(--buttonInnerline);
@@ -47,7 +45,7 @@ body {
   line-height: 1.5;
   text-shadow: 1px 1px var(--buttonTextShadow);
 }
-.customButton:hover{
+.customButton:hover {
   transition: 0.2s;
   background-color: var(--buttonHover);
   text-shadow: 1px 1px var(--buttonHoverShadow);
@@ -55,15 +53,14 @@ body {
 /* Nav Bar Stuff */
 #logo {
   margin: 0;
-  height: 20px;
+  height: 0px;
+  width: 6vw;
 }
 #navBar {
   flex-grow: 1;
   background-color: var(--navColor);
   color: var(--navText);
   max-height: 9vh;
-  /* box-shadow: 0px 1px 4px var(--navShadow); */
-  /* z-index: 1; */
 }
 #navList {
   padding-left: 0;
@@ -78,23 +75,27 @@ body {
   display: flex;
 }
 .navLink {
-  background-image:url("images/tv-static.png");
+  background-image: url("images/tv-static.png");
   background-position: 30px;
-  background-size:700px;
+  background-size: 700px;
   width: 100%;
   font-family: Paintball;
   font-size: 20px;
   text-decoration: none;
   color: var(--navText);
 }
+/* .navButton #one{
+    background-color: var(--mainBackground);
+    z-index: 2;
+  } */
 .navButton:hover {
   padding: 0px;
   transition: 0.15s;
   background-color: var(--navHover);
-  color: var(--navTextHover)
+  color: var(--navTextHover);
 }
-.navLink:hover{
-  color: var(--navTextHover)
+.navLink:hover {
+  color: var(--navTextHover);
 }
 #navBar ul {
   height: 100%;
@@ -140,7 +141,7 @@ body {
 #grow {
   flex-grow: 1;
 }
-#signInSection{
+#signInSection {
   color: var(--navText);
 }
 
@@ -171,7 +172,7 @@ input[type="radio"] {
 input[type="number"] {
   text-align: center;
   background-color: var(--consoleDark);
-  color:var(--consoleText);
+  color: var(--consoleText);
   font-family: Splatfont2;
   font-size: 12px;
   border-style: double;
@@ -180,7 +181,7 @@ input[type="number"] {
 }
 input[type="text"] {
   background-color: var(--consoleDark);
-  color:var(--consoleText);
+  color: var(--consoleText);
   font-family: Splatfont2;
   border-style: double;
   border-color: transparent;
@@ -197,8 +198,8 @@ input[type="text"] {
   max-height: 91vh;
 }
 #pageContent {
-  background-image:url("images/tv-static.png");
-  background-size:750px;
+  background-image: url("images/tv-static.png");
+  background-size: 750px;
   flex-grow: 4;
   background-color: var(--mainBackground);
   display: flex;
@@ -298,24 +299,24 @@ input[type="text"] {
   /* width:90%; */
   flex-direction: column;
 }
-#mainTable{
+#mainTable {
   background-color: var(--buttonYellow);
 }
-#mainTable .row{
+#mainTable .row {
   background-color: var(--buttonYellow);
 }
-#mainTable .row:nth-child(even){
-  background-color: var(--listYellowDark)
+#mainTable .row:nth-child(even) {
+  background-color: var(--listYellowDark);
 }
-#customListElement{
+#customListElement {
   background-color: var(--navHover);
   color: var(--navText);
   text-shadow: 1px 1px var(--mainBackground);
 }
-#customListElement .row{
+#customListElement .row {
   background-color: var(--navHover);
 }
-#customListElement .row:nth-child(even){
+#customListElement .row:nth-child(even) {
   background-color: var(--listBlueDark);
 }
 .row:nth-child(1) {
@@ -371,27 +372,34 @@ input[type="text"] {
   #navList {
     margin: 0px;
   }
+  #one{
+    background-color: var(--mainBackground);
+    z-index: 5;
+  }
+  #one:hover{
+    background-color: var(--navHover);
+  }
   .navButton {
     height: 100%;
     margin-left: 5px;
     margin-right: 5px;
-    background: var(--navButton);
+    background-color: var(--navButton);
     /* So how this works is that each set of % is a X,Y cordanite and they corrospond to a corner, if you add more cordanites then it adds more points to the edge, and you can use it to make a fake curve */
     clip-path: polygon(
-      0% 100%,/*bottom left corner*/ 
-      3% 30%,
+      0% 100%,
+      /*bottom left corner*/ 3% 30%,
       4% 20%,
       6% 10%,
       8% 4%,
       10% 1%,
-      12% 0%,/* Top Left corner */ 
-      88% 0%,
+      12% 0%,
+      /* Top Left corner */ 88% 0%,
       90% 1%,
       92% 4%,
       94% 10%,
       96% 20%,
-      97% 30%,/* Top right corner */ 
-      100% 100% /*bottom right corner*/
+      97% 30%,
+      /* Top right corner */ 100% 100% /*bottom right corner*/
     );
   }
   .navButton a {

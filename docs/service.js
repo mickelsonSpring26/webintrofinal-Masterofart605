@@ -43,7 +43,6 @@ export const fetchListData = async () => {
 };
 
 export const SendUsername = async (input) => {
-  console.log(input);
   await fetch(`${baseUrl}/name`, {
     method: "POST",
     headers: {
