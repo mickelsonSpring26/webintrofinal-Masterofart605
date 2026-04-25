@@ -15,7 +15,7 @@ const pageLoad = () =>{
     mapElement.textContent = list
     getQuereystingValue();
     if (queryValue === "deco"){
-        imageElement.src = "images/Blob-Lobba_deco.png"
+        imageElement.src = "images/Blob-Lobba_Deco.png"
     }
     if(queryValue === "map"){
         // show these on the page

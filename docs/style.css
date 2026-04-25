@@ -377,7 +377,9 @@ input[type="text"] {
     z-index: 5;
   }
   #one:hover{
+    box-shadow: 0px 10px 0px var(--navHover);
     background-color: var(--navHover);
+    z-index: 5;
   }
   .navButton {
     height: 100%;
