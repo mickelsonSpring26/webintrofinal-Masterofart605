@@ -84,7 +84,7 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
      - [x] text Color (also css)
      - [x] Map and [x] filer (last js)
      - [x] actual query string (Js)
-     - [ ] mobile responsive css
+     - [x] mobile responsive css
 
     - [x] desaturate the side bar
     - [x] text to fill the empty console
