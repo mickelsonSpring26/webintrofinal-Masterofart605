@@ -6,17 +6,32 @@
     <title>Main Page</title>
     <script type="module" src="ui.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="blob.ico" type="image/x-icon" />
+    <meta name="description" content="A page to randomly generate weapons for splattoon">
   </head>
   <body id="mainPage">
     <nav id="navBar">
       <ul id="navList">
-        <li id="logo" class="navButton">logo here</li>
-        <a href="index.html" class="navButton"><li>Main</li></a>
-        <a href="weapon.html" class="navButton"><li>Weapon list</li></a>
-        <a href="create.html" class="navButton"
-          ><li>Create your own list</li></a
-        >
-        <a href="display.html" class="navButton"><li>Display Page</li></a>
+        <!-- <li id="logo" class="navButton"></li> -->
+        <li class="navButton">
+          <a href="index.html" class="navLink">Main</a>
+        </li>
+        <li class="navButton">
+          <a href="weapon.html" class="navLink">Weapon list</a>
+        </li>
+        <li class="navButton">
+          <a href="create.html" class="navLink">Create your own list </a>
+        </li>
+        <li class="navButton"  id="displayButton">
+          <a href="display.html" class="navLink"
+            >Display Page</a
+          >
+        </li>
+        <li class="navButton hide" id="mobileButton">
+          <a href="moblieSignIn.html" class="navLink"
+            >Mobile Sign-in</a
+          >
+        </li>
       </ul>
     </nav>
     <main id="mainSection">
@@ -24,11 +39,11 @@
         <section id="signInSection"></section>
         <h3 id="title">Main Page</h3>
         <p id="description">
-          This is the main page! It's the most important part of the site,
-          because this is where you run the weapon generator
+          This is the main page! This Console allows you to randomly generate a
+          weapon from Splatoon 3 to use while playing the game.
         </p>
         <div id="grow"></div>
-        <button id="hideButton"><</button>
+        <button id="hideButton" class="customButton"><</button>
       </aside>
       <section id="pageContent">
         <form id="generatorForm">
@@ -38,11 +53,16 @@
             <br />
             <input type="number" name="" id="playerInput" />
           </label>
+          <div class="divider"></div>
           <section id="customRadioSection">
             Use your custom list?
             <br />
-            <label> <input type="radio" name="custom" id="customYes" />Yes </label>
-            <label> <input type="radio" name="custom" id="customNo" />No </label>
+            <label>
+              <input type="radio" name="custom" id="customYes" />Yes
+            </label>
+            <label>
+              <input type="radio" name="custom" id="customNo" />No
+            </label>
           </section>
           <section id="radioSection" class="hide">
             Use Kits
@@ -52,13 +72,21 @@
           </section>
           <div class="divider"></div>
           <section id="buttonSection">
-            <button type="submit">Generate</button>
+            <button type="submit" class="customButton">Generate</button>
             <br />
-            <button type="reset">Clear</button>
+            <button type="reset" class="customButton">Clear</button>
           </section>
-
         </form>
-        <section id="falseConsole"></section>
+        <section id="falseConsole">
+          <p>
+            Hello! To start enter the number of players who are participating.
+          </p>
+          <p>
+            If you are signed in and have created a custom list you may select
+            to use that. If not you can insead choose to use weapons with kits
+            or not
+          </p>
+        </section>
         <section id="singleDisplay"></section>
       </section>
     </main>

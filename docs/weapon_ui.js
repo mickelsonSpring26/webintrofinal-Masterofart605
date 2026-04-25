@@ -37,14 +37,16 @@ const createPage = async () => {
   searchBarElement.type = "text";
   searchBarElement.id = "filterBar";
   inputLabelElement.for = "searchBox";
-  inputLabelElement.textContent = "Filter list by what ever you want!";
+  inputLabelElement.textContent = "Filter by Anything";
   searchFormElement.classList.add("searchBox");
 
   //Get custom list if it exists
-  if (currentUser !== "") {
-    console.log(await fetchListData());
-    const fetchData = await fetchListData();
-    EditCustomList(fetchData);
+  if (createPageDetectorElement != null) {
+    if (currentUser !== "") {
+      console.log(await fetchListData());
+      const fetchData = await fetchListData();
+      EditCustomList(fetchData);
+    }
   }
 
   let filter = "";
@@ -61,15 +63,19 @@ const createPage = async () => {
         // ||weapon.Special.toLowerCase().includes(filter)
       );
     });
+      if (createPageDetectorElement != null) {
     newList = filterFromCustom(newList);
+      }
     EditFilteredWeaponList(newList);
     // console.log(await GetFilteredWeaponList())
     renderList(newList);
   });
 
   //Filter stuff already in custom list.
+    if (createPageDetectorElement != null) {
   newList = filterFromCustom(newList);
   EditFilteredWeaponList(newList);
+    }
 
   searchFormElement.appendChild(inputLabelElement);
   searchFormElement.appendChild(searchBarElement);
@@ -93,7 +99,9 @@ const createPage = async () => {
     }
     const submitElement = document.createElement("button");
     submitElement.type = "submit";
-    submitElement.textContent = "Submit";
+    submitElement.textContent = "Save List";
+    submitElement.id = "submitCustom"
+    submitElement.classList.add("customButton")
     submitElement.addEventListener("click", async (e) => {
       e.preventDefault();
       const username = { user: await GetCurrentUser() };

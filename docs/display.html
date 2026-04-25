@@ -12,12 +12,26 @@
   <body>
     <nav id="navBar">
       <ul id="navList">
-        <li id="logo" class="navButton"></li>
-        <a href="index.html" class="navButton"><li>Main</li></a>
-        <a href="weapon.html" class="navButton"><li>Weapon list</li></a>
-        <a href="create.html" class="navButton"
-          ><li>Create your own list</li></a>
-        <a href="display.html" class="navButton"><li>Display Page</li></a>
+        <li id="logo" class="navButton">logo here</li>
+        <li class="navButton">
+          <a href="index.html" class="navLink">Main</a>
+        </li>
+        <li class="navButton">
+          <a href="weapon.html" class="navLink">Weapon list</a>
+        </li>
+        <li class="navButton">
+          <a href="create.html" class="navLink">Create your own list </a>
+        </li>
+        <li class="navButton"  id="displayButton">
+          <a href="display.html" class="navLink"
+            >Display Page</a
+          >
+        </li>
+        <li class="navButton hide" id="mobileButton">
+          <a href="moblieSignIn.html" class="navLink"
+            >Mobile Sign-in</a
+          >
+        </li>
       </ul>
     </nav>
     <main id="mainSection">
@@ -28,7 +42,7 @@
           This is the page that that fills in the last requirements for this project.
         </p>
         <div  id="grow"></div>
-        <button id="hideButton"><</button>
+        <button id="hideButton" class="customButton"><</button>
       </aside>
       <section id="pageContent">
         <figure>

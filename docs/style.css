@@ -1,17 +1,28 @@
 :root {
-  --navColor: #fcbdff;
-  --navHover: #fed3ff;
-  --navText: #38381a;
-  --navShadow: #e5b7e6;
-  --descColor: #fed6ff;
-  --mainBackground: #fee9ff;
+  --navColor: #111111;
+  --navHover: #5b28ff;
+  --navText: #e9e9e9;
+  --navTextHover:#ffffff;
+  --navButton:#292929;
+  --navShadow: #262626;
+  --descriptionColor: #292929;
+  --mainBackground: #404040;
 
-  --formLight: #fffcff;
-  --formDim: #f8f1f7;
+  --buttonYellow:#dfec08;
+  --buttonTextShadow:#a0ab21;
+  --buttonHover:#b095f3;
+  --buttonHoverShadow:#8265ca;
+
+  --formLight: #ffffff2b;
+  --formDim: #c3c3c350;
   --consoleDark: #1f1721;
+  --consoleText:rgb(255, 254, 224);
 }
 
 body {
+  font-family: Splatfont2;
+  font-size: 14px;
+  line-height: 20px;
   margin: 0px;
   max-width: 100vw;
   width: 100vw;
@@ -20,6 +31,21 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+}
+.customButton{
+  transition: 0.2s;
+  border-style:double;
+  border-color: transparent;
+  background-color: var(--buttonYellow);
+  box-shadow: inset 0 0 0 1px black;
+  font-family: Splatfont2;
+  line-height: 1.5;
+  text-shadow: 1px 1px var(--buttonTextShadow);
+}
+.customButton:hover{
+  transition: 0.2s;
+  background-color: var(--buttonHover);
+  text-shadow: 1px 1px var(--buttonHoverShadow);
 }
 /* Nav Bar Stuff */
 #logo {
@@ -31,8 +57,8 @@ body {
   background-color: var(--navColor);
   color: var(--navText);
   max-height: 9vh;
-  box-shadow: 0px 1px 4px var(--navShadow);
-  z-index: 1;
+  /* box-shadow: 0px 1px 4px var(--navShadow); */
+  /* z-index: 1; */
 }
 #navList {
   padding-left: 0;
@@ -40,19 +66,30 @@ body {
   list-style-type: none;
   text-align: center;
 }
-#navList a {
-  text-decoration: none;
-  color: var(--navText);
-}
 .navButton {
   padding: 0px;
   transition: 0.15s;
   flex-grow: 1;
+  display: flex;
+}
+.navLink {
+  background-image:url("tv-static.png");
+  background-position: 30px;
+  background-size:700px;
+  width: 100%;
+  font-family: Paintball;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--navText);
 }
 .navButton:hover {
   padding: 0px;
   transition: 0.15s;
   background-color: var(--navHover);
+  color: var(--navTextHover)
+}
+.navLink:hover{
+  color: var(--navTextHover)
 }
 #navBar ul {
   height: 100%;
@@ -62,9 +99,10 @@ body {
 #pageDescription {
   flex-grow: 1;
   padding: 10px;
-  background-color: var(--descColor);
+  background-color: var(--descriptionColor);
   display: flex;
   flex-direction: column;
+  color: var(--navText);
 }
 .big {
   max-width: 15vw;
@@ -117,14 +155,41 @@ body {
   padding-right: 10px;
 }
 
+input[type="radio"] {
+  /* background-color: red; */
+  accent-color: var(--navHover);
+}
+input[type="number"] {
+  text-align: center;
+  background-color: var(--consoleDark);
+  color:var(--consoleText);
+  font-family: Splatfont2;
+  font-size: 12px;
+  border-style: double;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--navText);
+}
+input[type="text"] {
+  background-color: var(--consoleDark);
+  color:var(--consoleText);
+  font-family: Splatfont2;
+  border-style: double;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px var(--navText);
+  padding-left: 3px;
+}
 /* Main page Stuff */
 #mainSection {
+  z-index: 1;
+  box-shadow: 0px -1px 4px var(--navShadow);
   flex-grow: 2;
   display: flex;
   flex-direction: row;
   max-height: 91vh;
 }
 #pageContent {
+  background-image:url("tv-static.png");
+  background-size:750px;
   flex-grow: 4;
   background-color: var(--mainBackground);
   display: flex;
@@ -133,6 +198,7 @@ body {
 }
 /* Form stuff */
 #generatorForm {
+  color: var(--navText);
   display: flex;
   flex-direction: row;
   background-color: var(--formLight);
@@ -161,7 +227,7 @@ body {
   border-color: var(--formLight);
   border-width: 5px;
   border-style: double;
-  color: white;
+  color: var(--consoleText);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -181,6 +247,7 @@ body {
   width: 90%;
   margin: 10px;
   background-color: var(--formLight);
+  color: var(--navText);
   border-radius: 10px;
 }
 #singleDisplay {
@@ -198,7 +265,7 @@ body {
 #singleDisplay h3 {
   flex-grow: 2;
   border-left-style: solid;
-  border-left-color: var(--descColor);
+  border-left-color: var(--descriptionColor);
   margin-left: 5px;
   padding-top: 20px;
   font-size: 20px;
@@ -215,12 +282,20 @@ body {
 }
 .table {
   display: flex;
-  background-color: var(--formLight);
+  /* background-color: var(--formLight); */
   flex-grow: 1;
   margin: 30px;
   border-radius: 15px;
   /* width:90%; */
   flex-direction: column;
+}
+#mainTable{
+  background-color: var(--buttonYellow);
+}
+#customListElement{
+  background-color: var(--navHover);
+  color: var(--navText);
+  text-shadow: 1px 1px var(--mainBackground);
 }
 .row:nth-child(even) {
   background-color: var(--formLight);
@@ -261,10 +336,16 @@ body {
   border-radius: 15px;
   flex-direction: row;
   align-content: center;
+  color: var(--navText);
+  text-shadow: 1px 1px var(--mainBackground);
 }
 .searchBox input {
   flex-grow: 1;
   margin-left: 5px;
+}
+#submitCustom {
+  margin-left: 10px;
+  font-size: 10px;
 }
 
 /* Computer Mode */
@@ -276,11 +357,31 @@ body {
   }
   .navButton {
     height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: var(--navButton);
+    /* So how this works is that each set of % is a X,Y cordanite and they corrospond to a corner, if you add more cordanites then it adds more points to the edge, and you can use it to make a fake curve */
+    clip-path: polygon(
+      0% 100%,/*bottom left corner*/ 
+      3% 30%,
+      4% 20%,
+      6% 10%,
+      8% 4%,
+      10% 1%,
+      12% 0%,/* Top Left corner */ 
+      88% 0%,
+      90% 1%,
+      92% 4%,
+      94% 10%,
+      96% 20%,
+      97% 30%,/* Top right corner */ 
+      100% 100% /*bottom right corner*/
+    );
   }
   .navButton a {
     height: 100%;
   }
-  .navButton li {
+  .navLink {
     padding-top: 3vh;
     /* height: 100%; */
   }
@@ -288,26 +389,36 @@ body {
 
 /* Phone Mode */
 @media screen and (max-width: 400px) {
+  /* Nav bar stuff */
   #navBar {
-    max-height: 55px;
+    max-height: 9vh;
     max-width: 100vw;
+  }
+  /* main section stuff */
+  #mainSection {
+    max-height: 91vh;
+  }
+  #generatorForm {
+    /* max-width: 95vw; */
+    margin: 0px;
   }
   #pageDescription {
     display: none;
   }
   #navList {
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 0px;
     flex-wrap: wrap;
-    li {
-      width: 50vw;
-      padding-bottom: 5px;
-      font-size: 12px;
-    }
+  }
+  .navLink {
+    width: 50vw;
+    padding-top: 0.3vh;
+    font-size: 10px;
   }
   #generatorForm {
     margin-top: 10px;
     padding: 0px;
+    flex-direction: column;
     flex-wrap: wrap;
   }
   #buttonSection {
@@ -333,4 +444,28 @@ body {
   #falseConsole {
     max-width: 78%;
   }
+  /* Weapon list page formatting */
+  .tablesContainer {
+  }
+  #mainTable {
+    margin: 0px;
+    margin-top: 15px;
+  }
+  #customListElement {
+    margin: 0px;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+  .row p:nth-child(2) {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: PaintBall;
+  src: url(fonts/Project\ Paintball\ Display.ttf);
+}
+@font-face {
+  font-family: Splatfont2;
+  src: url(fonts/Splatfont2.ttf);
 }

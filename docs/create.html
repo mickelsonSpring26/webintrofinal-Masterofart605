@@ -7,15 +7,31 @@
     <script type="module" src="ui.js"></script>
         <script type="module" src="weapon_ui.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="blob.ico" type="image/x-icon">
   </head>
   <body id="create">
     <nav id="navBar">
       <ul id="navList">
-        <li id="logo" class="navButton"></li>
-        <a href="index.html" class="navButton"><li>Main</li></a>
-        <a href="weapon.html" class="navButton"><li>Weapon list</li></a>
-        <a href="create.html" class="navButton"><li>Create your own list</li></a>
-        <a href="display.html" class="navButton"><li>Display Page</li></a>
+        <li id="logo" class="navButton">logo here</li>
+        <li class="navButton">
+          <a href="index.html" class="navLink">Main</a>
+        </li>
+        <li class="navButton">
+          <a href="weapon.html" class="navLink">Weapon list</a>
+        </li>
+        <li class="navButton">
+          <a href="create.html" class="navLink">Create your own list </a>
+        </li>
+        <li class="navButton"  id="displayButton">
+          <a href="display.html" class="navLink"
+            >Display Page</a
+          >
+        </li>
+        <li class="navButton hide" id="mobileButton">
+          <a href="moblieSignIn.html" class="navLink"
+            >Mobile Sign-in</a
+          >
+        </li>
       </ul>
     </nav>
     <main id="mainSection">
@@ -24,9 +40,11 @@
         <h3 id="title">List creator page</h3>
         <p id="description">
           This page allows you to make your own lists of weapons, and if you are signed in you can save that list and later use it to fliter!
+          <br>
+          Just drag and drop weapons from the left list into the right list, then hit "Save List" when you are ready!
         </p>
         <div  id="grow"></div>
-        <button id="hideButton"><</button>
+        <button id="hideButton" class="customButton"><</button>
       </aside>
       <section id="pageContent" class="scrollBar"></section>
     </main>

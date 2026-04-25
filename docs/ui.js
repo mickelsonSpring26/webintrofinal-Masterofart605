@@ -4,7 +4,13 @@ import {
   SetCurrentUser,
   ToggleSideBar,
 } from "./domain.js";
-import { GetFullList, GetRandom, GetRandomCustom, GetRandomKitless, SendUsername } from "./service.js";
+import {
+  GetFullList,
+  GetRandom,
+  GetRandomCustom,
+  GetRandomKitless,
+  SendUsername,
+} from "./service.js";
 
 const formElement = document.getElementById("generatorForm");
 const nameElement = document.getElementById("nameInput");
@@ -17,11 +23,11 @@ const radioCustomNoElement = document.getElementById("customNo");
 const consoleElement = document.getElementById("falseConsole");
 const signInSectionElement = document.getElementById("signInSection");
 const hideElement = document.getElementById("hideButton");
-const sideBarElement = document.getElementById("pageDescription");
+export const sideBarElement = document.getElementById("pageDescription");
 const mainPageDetectorElement = document.getElementById("mainPage");
 
 const renderMain = async () => {
-  SendUsername({user:await GetCurrentUser()});
+  SendUsername({ user: await GetCurrentUser() });
   const miniDisplayElement = document.getElementById("singleDisplay");
   const currentUser = await GetCurrentUser();
   radioCustomNoElement.addEventListener("input", () => {
@@ -59,11 +65,11 @@ const renderMain = async () => {
     consoleElement.replaceChildren();
     let returnedValue = "";
     for (let index = 0; index < playerNumberElement.value; index++) {
-      if(fullResponce.custom === "yes"){
+      if (fullResponce.custom === "yes") {
         returnedValue = await GetRandomCustom();
-        displayConsleElement(returnedValue, index+1);
-      }else{
-      if (fullResponce.kit === "no") {
+        displayConsleElement(returnedValue, index + 1);
+      } else {
+        if (fullResponce.kit === "no") {
           returnedValue = await GetRandomKitless();
           displayConsleElement(returnedValue, index + 1);
         } else {
@@ -129,6 +135,7 @@ const renderLoginForm = () => {
   submitElement.type = "submit";
   submitElement.textContent = "submit";
   submitElement.id = "submitButton";
+  submitElement.classList.add("customButton")
 
   signInFormElement.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -157,6 +164,7 @@ const renderLoginComplete = () => {
   submitElement.type = "submit";
   submitElement.value = "Sign Out";
   submitElement.id = "submitButton";
+  submitElement.classList.add("customButton")
 
   signInFormElement.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -172,7 +180,7 @@ const renderLoginComplete = () => {
   signInFormElement.appendChild(submitElement);
 };
 
-const renderLogin = () => {
+export const renderLogin = (inputElement) => {
   const user = GetCurrentUser();
   if (!user) {
     renderLoginForm();
@@ -205,6 +213,17 @@ const displayConsleElement = (input, number) => {
   consoleElement.appendChild(nameElement);
 };
 
+const createMobileSignIn = () => {
+  const displayButtonElement = document.getElementById("displayButton");
+  const mobileButtonElement = document.getElementById("mobileButton");
+  const windowWidth = window.innerWidth;
+  if (windowWidth <= 500) {
+    mobileButtonElement.classList.remove("hide");
+    displayButtonElement.classList.add("hide");
+  }
+};
+
+createMobileSignIn();
 logInFromQueryString();
 renderLogin();
 if (mainPageDetectorElement !== null) {
