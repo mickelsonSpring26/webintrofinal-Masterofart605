@@ -8,7 +8,7 @@
 {"Name":"Bloblobber","reKit":"False","Sub":"Sprinkler","Special":"Inkstorm","Class":"Slosher"},
 {"Name":"Bloblobber Deco","reKit":"True","Sub":null,"Special":"Kraken","Class":"Slosher"},
 {"Name":"Explosher","reKit":"False","Sub":null,"Special":null,"Class":"Slosher"},
-{"Name":"","reKit":"True","Sub":null,"Special":null,"Class":"Slosher"},
+{"Name":"Custom Explosher","reKit":"True","Sub":null,"Special":null,"Class":"Slosher"},
 {"Name":"Dread Wringer","reKit":"False","Sub":null,"Special":null,"Class":"Slosher"},
 {"Name":"Dread Wringer D","reKit":"True","Sub":null,"Special":null,"Class":"Slosher"},
 {"Name":"Hornz Dread Wringer","reKit":"True","Sub":null,"Special":null,"Class":"Slosher"},

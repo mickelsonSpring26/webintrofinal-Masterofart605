@@ -63,19 +63,19 @@ const createPage = async () => {
         // ||weapon.Special.toLowerCase().includes(filter)
       );
     });
-      if (createPageDetectorElement != null) {
-    newList = filterFromCustom(newList);
-      }
+    if (createPageDetectorElement != null) {
+      newList = filterFromCustom(newList);
+    }
     EditFilteredWeaponList(newList);
     // console.log(await GetFilteredWeaponList())
     renderList(newList);
   });
 
   //Filter stuff already in custom list.
-    if (createPageDetectorElement != null) {
-  newList = filterFromCustom(newList);
-  EditFilteredWeaponList(newList);
-    }
+  if (createPageDetectorElement != null) {
+    newList = filterFromCustom(newList);
+    EditFilteredWeaponList(newList);
+  }
 
   searchFormElement.appendChild(inputLabelElement);
   searchFormElement.appendChild(searchBarElement);
@@ -100,8 +100,8 @@ const createPage = async () => {
     const submitElement = document.createElement("button");
     submitElement.type = "submit";
     submitElement.textContent = "Save List";
-    submitElement.id = "submitCustom"
-    submitElement.classList.add("customButton")
+    submitElement.id = "submitCustom";
+    submitElement.classList.add("customButton");
     submitElement.addEventListener("click", async (e) => {
       e.preventDefault();
       const username = { user: await GetCurrentUser() };
@@ -116,6 +116,10 @@ const createPage = async () => {
 
 const renderList = (inputList, isCustom) => {
   tableElement.replaceChildren();
+  if (createPageDetectorElement === null) {
+    const titleRow = createRow({ name: "Weapon Name",reKit:"Is it a Rekit?",sub:"Sub Weapon",special:"Speacial Weapon",class:"Weapon Class" });
+    tableElement.appendChild(titleRow);
+  }
   let id = 1;
   inputList.forEach((weapon) => {
     const newRow = createRow(weapon, id);

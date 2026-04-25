@@ -1,6 +1,6 @@
 let queryValue;
 const imageElement = document.getElementById("imageElement");
-
+const mapElement = document.getElementById("map")
 
 const getQuereystingValue = () => {
   const url = new URL(window.location);
@@ -11,16 +11,18 @@ const getQuereystingValue = () => {
 
 
 const pageLoad = () =>{
+    const list = [" two"," three"," four"]
+    mapElement.textContent = list
     getQuereystingValue();
     if (queryValue === "deco"){
-        imageElement.src = "Blob-Lobba_deco.png"
+        imageElement.src = "images/Blob-Lobba_deco.png"
     }
     if(queryValue === "map"){
         // show these on the page
-        const list = ["one","two","three"]
         console.log(list)
         const newlist = list.map((element)=>{return element+" Bloblobbers"})
         console.log(newlist)
+        mapElement.textContent=newlist
     }
 }
 

@@ -79,7 +79,7 @@ const renderMain = async () => {
       }
       if (index === 0) {
         const displayImage = document.createElement("img");
-        displayImage.src = "https://placehold.co/50x50";
+        displayImage.src = "images/Blob-Lobba.png";
         const nameBoxElement = document.createElement("h1");
         nameBoxElement.textContent = returnedValue.name;
         const subElement = document.createElement("h3");

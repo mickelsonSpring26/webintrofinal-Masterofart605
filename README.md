@@ -62,32 +62,31 @@ I'll be honest I have no Idea if this is a viable plan at all, but I as I get a 
      - [ ] _check box on page 2 to allow list editing_
      - [x] _I suppose **Drag and drop** to take stuff from avialable list and put it in a custom list_
      - [ ] **_Locally Store_** _this as the user's custom list_
-     - [ ] _Add an option on page 1 to use the list instead of the random_
-       - [ ] _Takes a random selection from the users list_
-     - [ ] _When there is a user the user can make a custom list, The custom list is created blank with a new user_
+     - [x] _Add an option on page 1 to use the list instead of the random_
+       - [x] _Takes a random selection from the users list_
+     - [x] _When there is a user the user can make a custom list, The custom list is created blank with a new user_
 6. April 18 (80%)
    - [ ] if I had to use the buffer week then do the _optional_ stuff from there this week, But if I did get it done... Break page 2 into 2 pages, one that has the detailed stats, and one for eddting the list that is more bare bones, (it would look better less crammed)
    - [ ] _Add extra stuff to page 2 stats_
 7. April 22 (90%)
-   - [ ] Final touchups in the style and HTML department All things listed here I can do while doing Style eariler, I just wanted it all in one spot
+   - [x] Final touchups in the style and HTML department All things listed here I can do while doing Style eariler, I just wanted it all in one spot
      - [x] Entire layout is **Flex**
-     - [ ] Buttons and boxes highlight when **hovered** and have propper **transition**
-     - [ ] Buttons have custom style
+     - [x] Buttons and boxes highlight when **hovered** and have propper **transition**
+     - [x] Buttons have custom style
      - [x] Page 2 rows grow slightly when **hoverd**. Every other row (**nth child**) is a different color
      - [x] Navbar across top
      - [x] Aside on the left
      - [x] Page one has a recreation of a the computer console in the center
      - [ ] Replacing the placeholder I mentioned before
-     - [ ] Font
+     - [x] Font
      - [x] Figure and Image (last html)
      - [x] Hover and nth Child (last css)
-     - [ ] text Color (also css)
+     - [x] text Color (also css)
      - [x] Map and [x] filer (last js)
      - [x] actual query string (Js)
      - [ ] mobile responsive css
 
-    - [ ] color more blue
-    - [ ] desaturate the side bar
-    - [ ] text to fill the empty console
+    - [x] desaturate the side bar
+    - [x] text to fill the empty console
     - [ ] descriptions/labels
-    - [ ] better format for the custom page.
+    - [x] better format for the custom page.

@@ -12,6 +12,11 @@
   --buttonTextShadow:#a0ab21;
   --buttonHover:#b095f3;
   --buttonHoverShadow:#8265ca;
+  --buttonInnerline:rgb(16, 16, 16);
+
+--listYellowDark:#f3ff4b;
+--listBlueDark:#3322cd;
+
 
   --formLight: #ffffff2b;
   --formDim: #c3c3c350;
@@ -37,7 +42,7 @@ body {
   border-style:double;
   border-color: transparent;
   background-color: var(--buttonYellow);
-  box-shadow: inset 0 0 0 1px black;
+  box-shadow: inset 0 0 0 1px var(--buttonInnerline);
   font-family: Splatfont2;
   line-height: 1.5;
   text-shadow: 1px 1px var(--buttonTextShadow);
@@ -73,7 +78,7 @@ body {
   display: flex;
 }
 .navLink {
-  background-image:url("tv-static.png");
+  background-image:url("images/tv-static.png");
   background-position: 30px;
   background-size:700px;
   width: 100%;
@@ -135,6 +140,9 @@ body {
 #grow {
   flex-grow: 1;
 }
+#signInSection{
+  color: var(--navText);
+}
 
 #signInForm {
   margin: 0px;
@@ -148,6 +156,7 @@ body {
 #userName {
   margin: 3px;
   min-width: 30px;
+  width: 95%;
 }
 #submitButton {
   padding: 3px;
@@ -188,7 +197,7 @@ input[type="text"] {
   max-height: 91vh;
 }
 #pageContent {
-  background-image:url("tv-static.png");
+  background-image:url("images/tv-static.png");
   background-size:750px;
   flex-grow: 4;
   background-color: var(--mainBackground);
@@ -292,13 +301,22 @@ input[type="text"] {
 #mainTable{
   background-color: var(--buttonYellow);
 }
+#mainTable .row{
+  background-color: var(--buttonYellow);
+}
+#mainTable .row:nth-child(even){
+  background-color: var(--listYellowDark)
+}
 #customListElement{
   background-color: var(--navHover);
   color: var(--navText);
   text-shadow: 1px 1px var(--mainBackground);
 }
-.row:nth-child(even) {
-  background-color: var(--formLight);
+#customListElement .row{
+  background-color: var(--navHover);
+}
+#customListElement .row:nth-child(even){
+  background-color: var(--listBlueDark);
 }
 .row:nth-child(1) {
   border-top-left-radius: 15px;
@@ -311,7 +329,7 @@ input[type="text"] {
 .row {
   transition: 0.2s;
   flex-grow: 1;
-  background-color: var(--formDim);
+  /* background-color: var(--formDim); */
   display: flex;
   max-height: fit-content;
 }
@@ -350,8 +368,6 @@ input[type="text"] {
 
 /* Computer Mode */
 @media screen and (min-width: 401px) {
-  #navBar {
-  }
   #navList {
     margin: 0px;
   }
@@ -420,6 +436,8 @@ input[type="text"] {
     padding: 0px;
     flex-direction: column;
     flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   #buttonSection {
     display: flex;
@@ -445,8 +463,6 @@ input[type="text"] {
     max-width: 78%;
   }
   /* Weapon list page formatting */
-  .tablesContainer {
-  }
   #mainTable {
     margin: 0px;
     margin-top: 15px;
